@@ -1,0 +1,135 @@
+#!/usr/bin/perl -w
+use strict;
+use FindBin;
+use lib "$FindBin::Bin/../lib/perl"; # running from src
+use Perl::Module;
+use Error::Logical;
+use Cwd qw(cwd);
+use Data::Hub;
+use Data::Hub::Util qw(:all);
+use Parse::Template::Standard;
+use Parse::JavaScript::Compiler;
+
+our $OPTS = my_opts(\@ARGV);
+our @Compilers = ();
+our $Debug = $OPTS->{'debug'} || 0;
+our $BuildDocs = $OPTS->{'docs'} || 0;
+our $BuildVim = $OPTS->{'vim'} || 0;
+our $Verbose = $OPTS->{'verbose'} || 0;
+our $Interval = $OPTS->{'poll'} || 0;
+our $Force = $OPTS->{'force'} || 0;
+our %Hubs = ();
+
+$Verbose and $Debug ||= 1;
+
+our $Value_Parser = Parse::Template::Standard->new(
+  -begin => '${',
+  -end => '}'
+);
+
+sub usage {
+  my $name = path_name($0);
+  print STDERR <<__EOF;
+usage:
+  $name -help
+  $name build-file [build-file, ...] [options]
+options:
+  -docs       Also build the doc target (if available)
+  -vim        Also build the vim auto-complete file (if available)
+  -verbose    Insert scripts loading messages (implies -debug)
+  -force      Compile even if none of the sources have a newer timestamp
+  -poll       Invokes daemon mode, specifies interval in seconds (default is 1)
+  -debug      The target script is not compressed, '///' lines are un-commented
+  -debug=all  Create debug files for all sources.
+  -debug=str  Only create debug files for sources matching the pattern str
+notes:
+  * Debug files are copied to the target's directory with the name '\$a-\$b.js' 
+    where \$a is the name of the target library, and \$b is the name of the 
+    source file. Should two or more source files have the same name, \$b is 
+    appended with the next number which will make it unique.
+  * The build file is hash file with the following members:
+      working_dir     Directory (absolute or relative to the build file) to 
+                      which all specified paths are realtive.
+      files           Array of source-file paths
+      target          Output path
+      doc_target      Output path for documentation
+      vim_target      Output path for a vim auto-complete file
+      copyright       Inserted as the first comment in the compressed output
+      name            Library name
+      version         Library version
+__EOF
+}
+
+sub populate_env_vars {
+  my $rval = shift;
+  my $result = $Value_Parser->compile_text(\$rval, \%ENV, @_);
+  $$result;
+}
+
+if ($OPTS->{'help'}) {
+  usage();
+  exit 0;
+}
+
+if (!@ARGV) {
+  usage();
+  exit 1;
+}
+
+foreach my $fn (@ARGV) {
+  -f $fn or throw Error::Logical "$!: $fn\n";
+  my $conf = Data::Hub::FileSystem::HashFile->new($fn);
+  my $bdir = path_parent(path_is_absolute($fn) ? $fn : cwd() ."/$fn");
+  my $wdir = $bdir;
+  if (my $conf_wdir = $conf->{'working_dir'}) {
+    $conf_wdir = populate_env_vars($conf_wdir);
+    $wdir = path_is_absolute($conf_wdir)
+      ? $conf_wdir
+      : path_normalize("$bdir/$conf_wdir");
+  }
+  my $hub = $Hubs{$wdir} ||= new Data::Hub($wdir);
+  my $compiler = new Parse::JavaScript::Compiler(
+    working_dir => $wdir,
+    build_dir => $bdir,
+    hub => $hub,
+    conf => $conf,
+    debug => $Debug,
+    DEBUG => $Debug, # for use as template var
+    build_docs => $BuildDocs,
+    build_vim => $BuildVim,
+    verbose => $Verbose,
+    VERBOSE => $Verbose, # for use as template var
+  );
+  push @Compilers, $compiler;
+}
+
+if (1) {
+  my $missing = 0;
+  foreach my $jsc (@Compilers) {
+    if (!$jsc->{last_compiled_mtime}) {
+      my $target = $jsc->get_conf_path('target');
+      my $conf_path = $jsc->{'conf'}->get_path;
+      warn "Target missing: $target ($conf_path)\n";
+      $missing++;
+    }
+  }
+  if ($missing && !$Force) {
+    die "There are missing targets and -force wasn't specified, exiting\n";
+  }
+}
+
+if ($Interval) {
+  die "Polling interval must be an integer\n" unless $Interval =~ /^\d+$/;
+  warnf "Polling every %d second%s (ctrl+c to quit)\n",
+    $Interval, $Interval gt 1 ? 's' : '';
+  while (1) {
+    foreach my $jsc (@Compilers) {
+      $jsc->compile() if $jsc->has_modified();
+    }
+    sleep $Interval;
+  }
+} else {
+  foreach my $jsc (@Compilers) {
+    $jsc->compile() if $Force || $jsc->has_modified();
+  }
+}

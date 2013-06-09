@@ -1,0 +1,634 @@
+#!/usr/bin/perl -w
+#
+# This is an unmaintained branch of lsn-jsc
+#
+# The idea is/was to inline the compression function. The structure is not
+# ideal as it creates the inlined code in the dir where the script is run.
+#
+# Also, it is better to use a more standard compressor, like yui. The reason
+# we use our own based off of Douglas' code is so to prevent compression of
+# parser directives (which are evaluated at runtime). This however is not needed
+# if one uses commas instead of spaces within the parser directives.
+#
+package Parse::JavaScript::Compiler;
+use strict;
+use Perl::Module;
+use Error::Logical;
+use Data::Hub::Util qw(:all);
+use Data::Hub::FileSystem::HashFile;
+use Data::Hub::Container;
+use Parse::Template::Standard;
+use Parse::JavaScript::Doc qw(def_to_vim);
+use File::Temp;
+use Time::Piece;
+use App::Console::Color qw(c_sprintf c_printf);
+
+use Inline C => <<'__END_C__';
+/* 
+2007-05-22
+Copyright (c) 2002 Douglas Crockford  (www.crockford.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+The Software shall be used for Good, not Evil.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+
+SV*   theOutput;
+char* theStr;
+int   thePos = 0;
+int   theA;
+int   theB;
+int   theLookahead = EOF;
+
+
+/* put -- append a character to the output string.
+*/
+
+void
+put (int c) {
+  sv_catpv(theOutput, &c);
+}
+
+/* isAlphanum -- return true if the character is a letter, digit, underscore,
+        dollar sign, or non-ASCII character.
+*/
+
+int
+isAlphanum(int c)
+{
+    return ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') ||
+        (c >= 'A' && c <= 'Z') || c == '_' || c == '$' || c == '\\' ||
+        c > 126);
+}
+
+
+/* get -- return the next character from stdin. Watch out for lookahead. If
+        the character is a control character, translate it to a space or
+        linefeed.
+*/
+
+int
+get()
+{
+    int c = theLookahead;
+    theLookahead = EOF;
+    if (c == EOF) {
+        c = theStr[thePos++];
+        if (!c) {
+          c = EOF;
+        }
+    }
+    if (c >= ' ' || c == '\n' || c == EOF) {
+        return c;
+    }
+    if (c == '\r') {
+        return '\n';
+    }
+    return ' ';
+}
+
+
+/* peek -- get the next character without getting it.
+*/
+
+int
+peek()
+{
+    theLookahead = get();
+    return theLookahead;
+}
+
+
+/* next -- get the next character, excluding comments. peek() is used to see
+        if a '/' is followed by a '/' or '*'.
+*/
+
+int
+next()
+{
+    int c = get();
+    if  (c == '/') {
+        switch (peek()) {
+        case '/':
+            for (;;) {
+                c = get();
+                if (c <= '\n') {
+                    return c;
+                }
+            }
+        case '*':
+            get();
+            for (;;) {
+                switch (get()) {
+                case '*':
+                    if (peek() == '/') {
+                        get();
+                        return ' ';
+                    }
+                    break;
+                case EOF:
+                    fprintf(stderr, "Error: JSMIN Unterminated comment.\n");
+                    exit(1);
+                }
+            }
+        default:
+            return c;
+        }
+    }
+    return c;
+}
+
+
+/* action -- do something! What you do is determined by the argument:
+        1   Output A. Copy B to A. Get the next B.
+        2   Copy B to A. Get the next B. (Delete A).
+        3   Get the next B. (Delete B).
+   action treats a string as a single character. Wow!
+   action recognizes a regular expression if it is preceded by ( or , or =.
+*/
+
+void
+action(int d)
+{
+    switch (d) {
+    case 1:
+        put(theA);
+    case 2:
+        theA = theB;
+        if (theA == '\'' || theA == '"') {
+            for (;;) {
+                put(theA);
+                theA = get();
+                if (theA == theB) {
+                    break;
+                }
+                if (theA <= '\n') {
+                    fprintf(stderr,
+"Error: JSMIN unterminated string literal: %c\n", theA);
+                    exit(1);
+                }
+                if (theA == '\\') {
+                    put(theA);
+                    theA = get();
+                }
+            }
+        }
+    case 3:
+        theB = next();
+        if (theB == '/' && (theA == '(' || theA == ',' || theA == '=' ||
+                            theA == ':' || theA == '[' || theA == '!' || 
+                            theA == '&' || theA == '|' || theA == '?' || 
+                            theA == '{' || theA == '}' || theA == ';' || 
+                            theA == '\n')) {
+            put(theA);
+            put(theB);
+            for (;;) {
+                theA = get();
+                if (theA == '/') {
+                    break;
+                } else if (theA =='\\') {
+                    put(theA);
+                    theA = get();
+                } else if (theA <= '\n') {
+                    fprintf(stderr,
+"Error: JSMIN unterminated Regular Expression literal.\n", theA);
+                    exit(1);
+                }
+                put(theA);
+            }
+            theB = next();
+        }
+        break;
+    case 4:
+        put(theA);
+        put(theB);
+        int depth;
+        for (depth = 1; depth > 0;) {
+            theA = next();
+//          fprintf(stderr, "%4i: %c\n", depth, theA);
+            switch (theA) {
+            case '[':
+              depth++;
+              break;
+            case ']':
+              depth--;
+              break;
+            case EOF: 
+              fprintf(stderr, "Unterminated parser directive\n");
+              exit(2);
+            }
+            if (depth > 0) put(theA);
+        }
+        theB = next();
+    }
+}
+
+
+/* jsmin -- Copy the input to the output, deleting the characters which are
+        insignificant to JavaScript. Comments will be removed. Tabs will be
+        replaced with spaces. Carriage returns will be replaced with linefeeds.
+        Most spaces and linefeeds will be removed.
+*/
+
+SV*
+jsmin(char* str)
+{
+    theOutput = newSV(strlen(str));
+    theStr = str;
+    theA = '\n';
+    action(3);
+    while (theA != EOF) {
+        switch (theA) {
+        case ' ':
+            if (isAlphanum(theB)) {
+                action(1);
+            } else {
+                action(2);
+            }
+            break;
+        case '\n':
+            switch (theB) {
+            case '{':
+            case '[':
+            case '(':
+            case '+':
+            case '-':
+                action(1);
+                break;
+            case ' ':
+                action(3);
+                break;
+            default:
+                if (isAlphanum(theB)) {
+                    action(1);
+                } else {
+                    action(2);
+                }
+            }
+            break;
+        case '[':
+            if (theB == '#') {
+                action(4);
+                break;
+            }
+        default:
+            switch (theB) {
+            case ' ':
+                if (isAlphanum(theA)) {
+                    action(1);
+                    break;
+                }
+                action(3);
+                break;
+            case '\n':
+                switch (theA) {
+                case '}':
+                case ']':
+                case ')':
+                case '+':
+                case '-':
+                case '"':
+                case '\'':
+                    action(1);
+                    break;
+                default:
+                    if (isAlphanum(theA)) {
+                        action(1);
+                    } else {
+                        action(3);
+                    }
+                }
+                break;
+            default:
+                action(1);
+                break;
+            }
+        }
+    }
+    return theOutput;
+}
+__END_C__
+
+sub new {
+  my $classname = ref($_[0]) ? ref(shift) : shift;
+  my $self = bless {
+    @_,
+    latest_source_mtime => 0,
+    last_compiled_mtime => 0,
+    file_list => [],
+  }, $classname;
+  $self->init();
+}
+
+sub build_file_list {
+  my $self = shift;
+  @{$self->{file_list}} = ();
+  my $files = $self->{conf}->get('files');
+  $files = Data::Hub::Container->new([$files]) unless ref $files;
+  for ($files->values) {
+    for ($self->{hub}->list($_)->values) {
+      push @{$self->{file_list}}, $_;
+    }
+  }
+}
+
+sub init {
+  my $self = shift;
+  if (my $mounts = $self->{conf}{mounts}) {
+    foreach my $mp (keys %$mounts) {
+      $self->{hub}->mount($mp, $self->path_localize($mounts->{$mp}));
+    }
+  }
+  $self->{parser} = Parse::Template::Standard->new(
+    $self->{hub},
+    -begin=>'{#',
+    -end=>'}'
+  );
+  $self->{parser}->use($self->{conf});
+  my $target = $self->get_conf_path('target');
+  my $stat = stat $target;
+  $self->{last_compiled_mtime} = $stat ? int($stat->mtime) : 0;
+  $self->build_file_list();
+  $self;
+}
+
+sub has_modified {
+  my $self = shift;
+  $self->refresh();
+  $self->{latest_source_mtime} > $self->{last_compiled_mtime};
+}
+
+sub refresh {
+  my $self = shift;
+  $self->{hub}->expire();
+  $self->{conf}->expire();
+  $self->{conf}->refresh();
+  $self->build_file_list();
+  $self->{latest_source_mtime} = 0;
+  foreach my $file (@{$self->{file_list}}) {
+    my $file_mtime = $file->get_mtime() || 0;
+    $self->{latest_source_mtime} =
+      max($self->{latest_source_mtime}, $file_mtime);
+    $self->{verbose} and warnf " %d: %s\n", $file->get_mtime(), $file->get_addr();
+  }
+  $self->{latest_source_mtime} =
+    max($self->{latest_source_mtime}, $self->{conf}->get_mtime);
+  $self;
+}
+
+sub compile {
+  my $self = shift;
+  my $js_text = Data::OrderedHash->new();
+  my $out = {};
+  my $doc = Parse::JavaScript::Doc->new();
+  my $target = $self->get_conf_path('target');
+  my $doc_target = $self->get_conf_path('doc_target');
+  my $vim_target = $self->get_conf_path('vim_target');
+  foreach my $file (@{$self->{file_list}}) {
+    my $fn = path_name($file->get_path);
+    my $out = '';
+    my $addr = $file->get_addr;
+    $self->{verbose} and warn $file->get_path(),"\n";
+    $self->{parser}->compile($addr, -out=>\$out);
+    $self->check_syntax($out, $file);
+    my $uniq = '';
+    my $basename = path_basename($fn);
+    my $ext = path_ext($fn);
+    my $key = "$basename$uniq.$ext";
+    while ($$js_text{$key}) {
+      $uniq++;
+      $key = "$basename$uniq.$ext";
+    }
+    $self->{verbose} and $out .= "\ntry{console.log('Loaded: $key');}catch(ex){}\n";
+    # Remove /// comments when debugging
+    $self->{debug} and $out =~ s!^(\s+)/{3}([^/])!$1$2!gm;
+    $self->{debug} and $out =~ s!^/{3}(\s+)!   $1!gm;
+    $self->{debug} and $out =~ s!^/{3}([^\s/])!$1!gm;
+    $$js_text{$key} = $out;
+    if ($doc_target && ($self->{build_docs} || $self->{build_vim})) {
+      my $text = $file->to_string;
+      $doc->parse(\$text)
+    }
+  }
+  my $target_text = '';
+  my $dbg_out_base = path_parent($target);
+  $dbg_out_base and $dbg_out_base .= '/';
+  my $dbg_out_basename = addr_name($target);
+  $dbg_out_base .= $dbg_out_basename;
+  foreach my $key (keys %$js_text) {
+    my $dbg_out_path = "$dbg_out_base-$key";
+    if ($self->{debug}
+        && $self->{debug} ne 1
+        && ($self->{debug} eq 'all' || $key =~ /$self->{debug}/)) {
+      # Write the output to its debug location
+      file_write($dbg_out_path, $$js_text{$key});
+      $self->printout("Wrote:", $dbg_out_path);
+      # Insert the document.write statement
+      my $target_url = $self->{conf}{target_url};
+      my $jssrc = $target_url
+        ? addr_normalize("$target_url/$dbg_out_basename-$key")
+        : "[#`./$dbg_out_basename-$key`]";
+      my $fmt = '<script type="text/javascript" src="%s"></script>';
+      my $elem = sprintf($fmt, $jssrc);
+      $target_text .= sprintf("document.write('%s');\n", $elem);
+    } else {
+      if (-e $dbg_out_path) {
+        $self->printout("Removed:", $dbg_out_path);
+        file_remove($dbg_out_path)
+      }
+      $target_text .= $$js_text{$key} . "\n";
+    }
+  }
+  if ($self->{debug}) {
+    file_write($target, $target_text);
+    $self->printout("Wrote:", $target);
+  } else {
+    #my $headline = $self->{conf}{copyright} || '';
+    #$headline =~ s/(?<!\\)'//g;
+    file_write($target, jsmin($target_text || ''));
+    $self->printout("Wrote:", $target);
+  }
+  if ($doc_target && $self->{build_docs}) {
+    my $hf = Data::Hub::FileSystem::HashFile->new($doc_target);
+    $hf->set_data($doc->sort);
+    $hf->save();
+    $self->printout("Wrote:", $doc_target);
+  }
+  if ($vim_target && $self->{build_vim}) {
+    my $out = "let g:autoc_list = [\n";
+    my $defs = $doc->sort->{defs};
+    $out .= sprintf "\\{%s},\n", def_to_vim($_) for @$defs;
+    $out .= sprintf "\\{%s},\n", def_to_vim($_, 'ecma') for @$defs;
+    $out .= "\\]";
+    file_write($vim_target, \$out);
+    $self->printout("Wrote:", $vim_target);
+  }
+  $self->{last_compiled_mtime} = $self->{latest_source_mtime};
+}
+
+sub check_syntax {
+  my $self = shift;
+  my $text = shift;
+  my $file = shift;
+  $text =~ /,\s*}[\s)]*[;}]/s and do {
+    my $match = $&;
+    my $pre = substr $`, -20;
+    my $post = substr $', 0, 5;
+    my $line_no = ($` =~ y/\n/\n/) + 1;
+    my $path = $file->get_path;
+    my $msg = c_sprintf "%s%_*s%s", $pre, $match, $post;
+    $msg =~ s/\n/\\n/g;
+    $self->printout('Warning:', "trailing comma found:");
+    $self->printout('   path:', $path);
+    $self->printout('   line:', $line_no);
+    $self->printout('   text:', $msg);
+    return 0;
+  };
+  1;
+}
+
+sub path_localize {
+  my $self = shift;
+  my $rel_path = shift;
+  return $rel_path if path_is_absolute($rel_path);
+  my $fs_path = $self->{hub}->get_fs_root->get_path;
+  path_normalize("$fs_path/$rel_path");
+}
+
+sub get_conf_path {
+  my $self = shift;
+  my $key = shift;
+  my $value = $self->{conf}{$key} or return;
+  $self->path_localize($value);
+}
+
+sub printout {
+  my $self = shift;
+  my $t = localtime;
+  my $tstr = $t->strftime('%D %T');
+  my $arg1 = shift;
+  my $arg2 = join(' ', @_);
+  c_printf \*STDERR, "[%_bs] %_rs %s\n", $tstr, $arg1, $arg2;
+}
+
+1;
+
+package main;
+use strict;
+use Perl::Module;
+use Error::Logical;
+use Data::Hub;
+use Data::Hub::Util qw(:all);
+use Cwd qw(cwd);
+
+our $OPTS = my_opts(\@ARGV);
+
+our @Compilers = ();
+our $Debug = $OPTS->{'debug'} || 0;
+our $BuildDocs = $OPTS->{'docs'} || 0;
+our $BuildVim = $OPTS->{'vim'} || 0;
+our $Verbose = $OPTS->{'verbose'} || 0;
+our $Interval = $OPTS->{'poll'} || 0;
+our $Force = $OPTS->{'force'} || 0;
+our %Hubs = ();
+$Verbose and $Debug ||= 1;
+
+sub usage {
+  my $name = path_name($0);
+  print STDERR <<__EOF;
+usage:
+  $name -help
+  $name build-file [build-file, ...] [options]
+options:
+  -docs       Also build the doc target (if available)
+  -vim        Also build the vim auto-complete file (if available)
+  -verbose    Insert scripts loading messages (implies -debug)
+  -force      Compile even if none of the sources have a newer timestamp
+  -poll       Invokes daemon mode, specifies interval in seconds (default is 1)
+  -debug      The target script is not compressed, '///' lines are un-commented
+  -debug=all  Create debug files for all sources.
+  -debug=str  Only create debug files for sources matching the pattern str
+notes:
+  * Debug files are copied to the target's directory with the name '\$a-\$b.js' 
+    where \$a is the name of the target library, and \$b is the name of the 
+    source file. Should two or more source files have the same name, \$b is 
+    appended with the next number which will make it unique.
+  * The build file is hash file with the following members:
+      working_dir     Directory (absolute or relative to the build file) to 
+                      which all specified paths are realtive.
+      files           Array of source-file paths
+      target          Output path
+      doc_target      Output path for documentation
+      vim_target      Output path for a vim auto-complete file
+      copyright       Inserted as the first comment in the compressed output
+      name            Library name
+      version         Library version
+__EOF
+}
+
+if ($OPTS->{'help'}) {
+  usage();
+  exit 0;
+}
+
+if (!@ARGV) {
+  usage();
+  exit 1;
+}
+
+foreach my $fn (@ARGV) {
+  -f $fn or throw Error::Logical "$!: $fn\n";
+  my $conf = Data::Hub::FileSystem::HashFile->new($fn);
+  my $wdir = path_parent(path_is_absolute($fn) ? $fn : cwd() ."/$fn");
+  if (my $conf_wdir = $conf->{working_dir}) {
+    $wdir = path_is_absolute($conf_wdir)
+      ? $conf_wdir
+      : path_normalize("$wdir/$conf_wdir");
+  }
+  my $hub = $Hubs{$wdir} ||= new Data::Hub($wdir);
+  my $compiler = new Parse::JavaScript::Compiler(
+    working_dir => $wdir,
+    hub => $hub,
+    conf => $conf,
+    debug => $Debug,
+    build_docs => $BuildDocs,
+    build_vim => $BuildVim,
+    verbose => $Verbose,
+  );
+  push @Compilers, $compiler;
+}
+
+if ($Interval) {
+  die "Polling interval must be an integer\n" unless $Interval =~ /^\d+$/;
+  warnf "Polling every %d second%s (ctrl+c to quit)\n",
+    $Interval, $Interval gt 1 ? 's' : '';
+  while (1) {
+    foreach my $jsc (@Compilers) {
+      $jsc->compile() if $jsc->has_modified();
+    }
+    sleep $Interval;
+  }
+} else {
+  foreach my $jsc (@Compilers) {
+    $jsc->compile() if $Force || $jsc->has_modified();
+  }
+}

@@ -1,0 +1,13 @@
+# HashFile 2.1
+builder => ecma
+copyright => Livesite (c) Livesite Networks, LLC 2006-2013
+working_dir => ../src/lib/ecma
+target => ../out/minimal.js
+doc_target => ../out/minimal.hf
+vim_target => ../out/minimal.vim
+name => ECMAScript
+version => 1.000
+files => @{
+  ECMAScript.js
+  global.js
+}

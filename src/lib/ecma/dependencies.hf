@@ -1,0 +1,5915 @@
+# HashFile 2.1
+files => @{
+  %{
+    provides => @{
+      lang.createPrototype
+      lang.hasMethods
+      lang.createConstructor
+      lang.createObject
+      lang.createCallback
+      lang.createCallbackArray
+      lang.callback
+      lang.assert
+      lang.createAbstractFunction
+      lang.createProxyFunction
+      lang.Constructor
+      lang.Callback
+      lang.Methods
+      lang.createMethods
+    }
+    dependencies => @{
+    }
+    usages => @{
+      console.log
+      lang.createPrototype
+      lang.createCallbackArray
+      util.args
+      error.Assertion
+      error.reportError
+      util.isArray
+      lang.createProxyFunction
+      lang.createConstructor
+      lang.createCallback
+    }
+    path => /home/ryan/code/src/lib/ecma/lang/lang.js
+    tags => %{
+      lang.createProxyFunction => %{
+        tag_value => createProxyFunction
+        tag_name => function
+        id => lang.createProxyFunction
+        tag_info => 
+      }
+      lang.Constructor => %{
+        tag_value => Constructor
+        tag_name => deprecated
+        id => lang.Constructor
+        tag_info => (Use ecma.lang.createConstructor)
+      }
+      lang.callback => %{
+        tag_value => callback
+        tag_name => function
+        id => lang.callback
+        tag_info => 
+      }
+      lang.Callback => %{
+        tag_value => Callback
+        tag_name => deprecated
+        id => lang.Callback
+        tag_info => (Use ecma.lang.createCallback)
+      }
+      lang.createPrototype => %{
+        tag_value => createPrototype
+        tag_name => function
+        id => lang.createPrototype
+        tag_info => 
+      }
+      lang.createCallbackArray => %{
+        tag_value => createCallbackArray
+        tag_name => function
+        id => lang.createCallbackArray
+        tag_info => 
+      }
+      lang.hasMethods => %{
+        tag_value => hasMethods
+        tag_name => function
+        id => lang.hasMethods
+        tag_info => 
+      }
+      lang.createAbstractFunction => %{
+        tag_value => createAbstractFunction
+        tag_name => function
+        id => lang.createAbstractFunction
+        tag_info => 
+      }
+      lang.createObject => %{
+        tag_value => createObject
+        tag_name => function
+        id => lang.createObject
+        tag_info => 
+      }
+      lang.createCallback => %{
+        tag_value => createCallback
+        tag_name => function
+        id => lang.createCallback
+        tag_info => 
+      }
+      lang.Methods => %{
+        tag_value => Methods
+        tag_name => deprecated
+        id => lang.Methods
+        tag_info => (Use ecma.lang.createPrototype)
+      }
+      lang.createConstructor => %{
+        tag_value => createConstructor
+        tag_name => function
+        id => lang.createConstructor
+        tag_info => 
+      }
+      lang.createMethods => %{
+        tag_value => createMethods
+        tag_name => deprecated
+        id => lang.createMethods
+        tag_info => (Use ecma.lang.createPrototype)
+      }
+      lang.assert => %{
+        tag_value => assert
+        tag_name => function
+        id => lang.assert
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.auth.setAuthToken
+      lsn.auth.getAuthToken
+      lsn.auth.basic
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.getAttribute
+      crypt.hex_sha1
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/auth/auth.js
+    tags => %{
+      lsn.auth.basic => %{
+        tag_value => basic
+        tag_name => function
+        id => lsn.auth.basic
+        tag_info => 
+      }
+      lsn.auth.getAuthToken => %{
+        tag_value => getAuthToken
+        tag_name => function
+        id => lsn.auth.getAuthToken
+        tag_info => 
+      }
+      lsn.auth.setAuthToken => %{
+        tag_value => setAuthToken
+        tag_name => function
+        id => lsn.auth.setAuthToken
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.Mask
+      lsn.showMask
+      lsn.hideMask
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.overlay
+      dom.createElement
+      dom.browser.isIE
+      dom.getTop
+      dom.getLeft
+      dom.setStyle
+      dom.EventListener
+      dom.getBody
+      dom.Canvas
+      util.defined
+      lsn.Mask
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/Mask.js
+    tags => %{
+      lsn.hideMask => %{
+        tag_value => hideMask
+        tag_name => function
+        id => lsn.hideMask
+        tag_info => 
+      }
+      lsn.Mask => %{
+        tag_value => Mask
+        tag_name => class
+        id => lsn.Mask
+        tag_info => 
+      }
+      lsn.showMask => %{
+        tag_value => showMask
+        tag_name => function
+        id => lsn.showMask
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.InputListener
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+      dom.getElement
+      dom.EventListener
+      dom.getValue
+      dom.setInterval
+      dom.clearInterval
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/InputListener.js
+    tags => %{
+      lsn.InputListener => %{
+        tag_value => InputListener
+        tag_name => class
+        id => lsn.InputListener
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.setMoveTarget
+      lsn.Move
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.Move
+      lsn.ui.Base
+      dom.getElement
+      dom.browser.isIE
+      dom.EventListener
+      dom.getViewportPosition
+      dom.makePositioned
+      dom.getEventPointer
+      dom.getLeft
+      dom.getTop
+      util.asInt
+      dom.getStyle
+      dom.getWidth
+      dom.getHeight
+      dom.setStyle
+      dom.stopEvent
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/Move.js
+    tags => %{
+      lsn.setMoveTarget => %{
+        tag_value => setMoveTarget
+        tag_name => function
+        id => lsn.setMoveTarget
+        tag_info => - Static method for backward compat
+      }
+      lsn.Move => %{
+        tag_value => Move
+        tag_name => class
+        id => lsn.Move
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Batch
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Base
+      lang.createPrototype
+      util.args
+      lsn.hubb.command.createInstance
+      lang.assert
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Batch.js
+    tags => %{
+      lsn.hubb.command.Batch => %{
+        tag_value => Batch
+        tag_name => class
+        id => lsn.hubb.command.Batch
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Progress
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Base
+      lang.createPrototype
+      dom.setTimeout
+      http.JSONRequest
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Progress.js
+    tags => %{
+      lsn.hubb.command.Progress => %{
+        tag_value => Progress
+        tag_name => class
+        id => lsn.hubb.command.Progress
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Download
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Base
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Download.js
+    tags => %{
+      lsn.hubb.command.Download => %{
+        tag_value => Download
+        tag_name => class
+        id => lsn.hubb.command.Download
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Remove
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Base
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Remove.js
+    tags => %{
+      lsn.hubb.command.Remove => %{
+        tag_value => Remove
+        tag_name => class
+        id => lsn.hubb.command.Remove
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Move
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Base
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Move.js
+    tags => %{
+      lsn.hubb.command.Move => %{
+        tag_value => Move
+        tag_name => class
+        id => lsn.hubb.command.Move
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Update
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Base
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Update.js
+    tags => %{
+      lsn.hubb.command.Update => %{
+        tag_value => Update
+        tag_name => class
+        id => lsn.hubb.command.Update
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Create
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Base
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Create.js
+    tags => %{
+      lsn.hubb.command.Create => %{
+        tag_value => Create
+        tag_name => class
+        id => lsn.hubb.command.Create
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Fetch
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Base
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Fetch.js
+    tags => %{
+      lsn.hubb.command.Fetch => %{
+        tag_value => Fetch
+        tag_name => class
+        id => lsn.hubb.command.Fetch
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Rename
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Base
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Rename.js
+    tags => %{
+      lsn.hubb.command.Rename => %{
+        tag_value => Rename
+        tag_name => class
+        id => lsn.hubb.command.Rename
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Base
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.isa
+      hubb.HashNode
+      hubb.ArrayNode
+      data.addr_ext
+      lang.assert
+      action.ActionDispatcher
+      impl.Parameters
+      lsn.Request
+      lsn.auth.getAuthToken
+      lang.createPrototype
+      util.associateArrays
+      hubb.XFR
+      util.args
+      util.step
+      lang.callback
+      data.addr_join
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Base.js
+    tags => %{
+      lsn.hubb.command.Base => %{
+        tag_value => Base
+        tag_name => class
+        id => lsn.hubb.command.Base
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Insert
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Base
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Insert.js
+    tags => %{
+      lsn.hubb.command.Insert => %{
+        tag_value => Insert
+        tag_name => class
+        id => lsn.hubb.command.Insert
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Copy
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Base
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Copy.js
+    tags => %{
+      lsn.hubb.command.Copy => %{
+        tag_value => Copy
+        tag_name => class
+        id => lsn.hubb.command.Copy
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Store
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Base
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Store.js
+    tags => %{
+      lsn.hubb.command.Store => %{
+        tag_value => Store
+        tag_name => class
+        id => lsn.hubb.command.Store
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.Reorder
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Base
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command/Reorder.js
+    tags => %{
+      lsn.hubb.command.Reorder => %{
+        tag_value => Reorder
+        tag_name => class
+        id => lsn.hubb.command.Reorder
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.UploadDialog
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.ui.CreateDialog
+      lang.createPrototype
+      dom.createElement
+      dom.EventListener
+      dom.setAttribute
+      dom.replaceChildren
+      dom.getContentDocument
+      dom.getContentWindow
+      util.defined
+      dom.getValue
+      util.randomId
+      lsn.auth.getAuthToken
+      hubb.getInstance
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/UploadDialog.js
+    tags => %{
+      hubb.ui.UploadDialog => %{
+        tag_value => UploadDialog
+        tag_name => class
+        id => hubb.ui.UploadDialog
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.DataList
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.ui.TreeView
+      lang.createPrototype
+      dom.stopEvent
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/DataList.js
+    tags => %{
+      hubb.ui.DataList => %{
+        tag_value => DataList
+        tag_name => class
+        id => hubb.ui.DataList
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.TreeView
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      util.incrementalId
+      hubb.getInstance
+      dom.createElement
+      hubb.ui.initStyles
+      lang.createPrototype
+      data.addr_normalize
+      dom.getBody
+      dom.getStyle
+      data.addr_split
+      thread.spawn
+      dom.getHeight
+      dom.getTop
+      dom.getBottom
+      util.asInt
+      hubb.ui.TreeNode
+      lang.assert
+      util.isa
+      dom.setValue
+      util.args
+      console.log
+      dom.stopEvent
+      dom.browser.isOpera
+      dom.addClassName
+      dom.removeClassName
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/TreeView.js
+    tags => %{
+      hubb.ui.TreeView => %{
+        tag_value => TreeView
+        tag_name => class
+        id => hubb.ui.TreeView
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.FileItem
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      hubb.getInstance
+      lang.createPrototype
+      util.defined
+      dom.createElement
+      dom.EventListener
+      dom.replaceChildren
+      dom.getContentDocument
+      dom.getContentWindow
+      dom.setStyle
+      dom.appendChildren
+      dom.setAttribute
+      dom.setValue
+      dom.stopEvent
+      dom.removeElement
+      util.randomId
+      dom.getEventTarget
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/FileItem.js
+    tags => %{
+      hubb.ui.FileItem => %{
+        tag_value => FileItem
+        tag_name => class
+        id => hubb.ui.FileItem
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.CopyDialog
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.ui.TargetDialog
+      lang.createPrototype
+      hubb.getInstance
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/CopyDialog.js
+    tags => %{
+      hubb.ui.CopyDialog => %{
+        tag_value => CopyDialog
+        tag_name => class
+        id => hubb.ui.CopyDialog
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.BrowseDialog
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.Dialog
+      dom.removeAttribute
+      dom.setAttribute
+      hubb.ui.TreeView
+      dom.replaceChildren
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/BrowseDialog.js
+    tags => %{
+      hubb.ui.BrowseDialog => %{
+        tag_value => BrowseDialog
+        tag_name => class
+        id => hubb.ui.BrowseDialog
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.FileList
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+      hubb.getInstance
+      hubb.ui.FileItem
+      dom.createElement
+      dom.setValue
+      dom.addClassName
+      dom.removeClassName
+      dom.stopEvent
+      lang.createCallbackArray
+      util.step
+      lang.callback
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/FileList.js
+    tags => %{
+      hubb.ui.FileList => %{
+        tag_value => FileList
+        tag_name => class
+        id => hubb.ui.FileList
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.initStyles
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.randomId
+      dom.getElement
+      dom.StyleSheet
+      dom.browser.isGecko
+      dom.browser.isWebKit
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/TreeStyles.js
+    tags => %{
+      hubb.ui.initStyles => %{
+        tag_value => initStyles
+        tag_name => function
+        id => hubb.ui.initStyles
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.TreeNode
+    }
+    dependencies => @{
+    }
+    usages => @{
+      data.Node
+      lang.createPrototype
+      hubb.ui.TreeNode
+      util.defined
+      dom.createElement
+      hubb.getIconByName
+      dom.EventListener
+      dom.addClassName
+      dom.getAttribute
+      dom.setAttribute
+      dom.getValue
+      dom.setValue
+      lang.callback
+      dom.removeElement
+      lang.assert
+      dom.stopEvent
+      dom.insertAfter
+      data.addr_name
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/TreeNode.js
+    tags => %{
+      hubb.ui.TreeNode => %{
+        tag_value => TreeNode
+        tag_name => class
+        id => hubb.ui.TreeNode
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.MoveDialog
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.ui.TargetDialog
+      lang.createPrototype
+      hubb.getInstance
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/MoveDialog.js
+    tags => %{
+      hubb.ui.MoveDialog => %{
+        tag_value => MoveDialog
+        tag_name => class
+        id => hubb.ui.MoveDialog
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.ComboBox
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.ui.TreeView
+      lsn.ComboBox
+      lang.createPrototype
+      dom.removeClassName
+      dom.addClassName
+      dom.stopEvent
+      hubb.ui.UploadDialog
+      hubb.ui.NewDirectoryDialog
+      hubb.getInstance
+      dom.createElement
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/ComboBox.js
+    tags => %{
+      hubb.ui.ComboBox => %{
+        tag_value => ComboBox
+        tag_name => class
+        id => hubb.ui.ComboBox
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.input.ResizeTextarea
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.getElement
+      lsn.Mask
+      dom.createElement
+      lsn.DragHandle
+      dom.stopEvent
+      dom.setStyle
+      dom.getHeight
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/input/ResizeTextarea.js
+    tags => %{
+      hubb.ui.input.ResizeTextarea => %{
+        tag_value => ResizeTextarea
+        tag_name => class
+        id => hubb.ui.input.ResizeTextarea
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.input.Control
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.ui.input.StatusIcon
+      dom.setAttribute
+      hubb.getInstance
+      dom.removeAttribute
+      dom.setStyle
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/input/Control.js
+    tags => %{
+      hubb.ui.input.Control => %{
+        tag_value => Control
+        tag_name => class
+        id => hubb.ui.input.Control
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.input.StatusIcon
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.createElement
+      fx.effects.Opacify
+      lang.createPrototype
+      dom.setOpacity
+      dom.setAttribute
+      dom.setTimeout
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/input/StatusIcon.js
+    tags => %{
+      hubb.ui.input.StatusIcon => %{
+        tag_value => StatusIcon
+        tag_name => class
+        id => hubb.ui.input.StatusIcon
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.input.InputTextarea
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.forms.InputTextarea
+      hubb.ui.input.Control
+      dom.createElement
+      hubb.ui.input.ResizeTextarea
+      lang.createPrototype
+      dom.setStyle
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/input/InputTextarea.js
+    tags => %{
+      hubb.ui.input.InputTextarea => %{
+        tag_value => InputTextarea
+        tag_name => class
+        id => hubb.ui.input.InputTextarea
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.input.InputBoolean
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.forms.InputBoolean
+      hubb.ui.input.Control
+      dom.StyleSheet
+      dom.createElement
+      dom.EventListener
+      lang.createPrototype
+      dom.setClassName
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/input/InputBoolean.js
+    tags => %{
+      hubb.ui.input.InputBoolean => %{
+        tag_value => InputBoolean
+        tag_name => class
+        id => hubb.ui.input.InputBoolean
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.input.InputText
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.forms.InputText
+      hubb.ui.input.Control
+      dom.createElement
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/input/InputText.js
+    tags => %{
+      hubb.ui.input.InputText => %{
+        tag_value => InputText
+        tag_name => class
+        id => hubb.ui.input.InputText
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.TargetDialog
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.Dialog
+      dom.getValue
+      data.addr_normalize
+      hubb.getInstance
+      dom.setValue
+      dom.removeClassName
+      dom.addClassName
+      dom.removeAttribute
+      dom.setAttribute
+      lsn.InputListener
+      data.addr_parent
+      data.addr_name
+      hubb.ui.FolderList
+      dom.replaceChildren
+      hubb.ui.DataList
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/TargetDialog.js
+    tags => %{
+      hubb.ui.TargetDialog => %{
+        tag_value => TargetDialog
+        tag_name => class
+        id => hubb.ui.TargetDialog
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.FolderList
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.ui.TreeView
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/FolderList.js
+    tags => %{
+      hubb.ui.FolderList => %{
+        tag_value => FolderList
+        tag_name => class
+        id => hubb.ui.FolderList
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.NewFileDialog
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.ui.CreateDialog
+      lang.createPrototype
+      hubb.getInstance
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/NewFileDialog.js
+    tags => %{
+      hubb.ui.NewFileDialog => %{
+        tag_value => NewFileDialog
+        tag_name => class
+        id => hubb.ui.NewFileDialog
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.CreateDialog
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.overlay
+      lsn.Dialog
+      dom.getValue
+      dom.setValue
+      data.addr_normalize
+      hubb.getInstance
+      dom.removeClassName
+      dom.addClassName
+      dom.removeAttribute
+      dom.setAttribute
+      lsn.InputListener
+      dom.EventListener
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/CreateDialog.js
+    tags => %{
+      hubb.ui.CreateDialog => %{
+        tag_value => CreateDialog
+        tag_name => class
+        id => hubb.ui.CreateDialog
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.ui.input.InputBoolean
+      hubb.ui.input.InputTextarea
+      hubb.ui.input.InputText
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/ui.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      TreeBox
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.ui.TreeView
+      lang.createPrototype
+      dom.removeClassName
+      dom.addClassName
+      dom.getElement
+      dom.replaceChildren
+      dom.setStyle
+      dom.stopEvent
+      hubb.ui.UploadDialog
+      hubb.ui.NewDirectoryDialog
+      hubb.getInstance
+      dom.createElement
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/TreeBox.js
+    tags => %{
+      TreeBox => %{
+        tag_value => TreeBox
+        tag_name => class
+        id => TreeBox
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.DownloadDialog
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.ui.CreateDialog
+      lang.createPrototype
+      dom.addEventListener
+      dom.setValue
+      util.defined
+      dom.getValue
+      hubb.getInstance
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/DownloadDialog.js
+    tags => %{
+      hubb.ui.DownloadDialog => %{
+        tag_value => DownloadDialog
+        tag_name => class
+        id => hubb.ui.DownloadDialog
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ui.NewDirectoryDialog
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.ui.CreateDialog
+      lang.createPrototype
+      hubb.getInstance
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/ui/NewDirectoryDialog.js
+    tags => %{
+      hubb.ui.NewDirectoryDialog => %{
+        tag_value => NewDirectoryDialog
+        tag_name => class
+        id => hubb.ui.NewDirectoryDialog
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.hubb.command.createInstance
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.hubb.command.Fetch
+      lsn.hubb.command.Store
+      lsn.hubb.command.Update
+      lsn.hubb.command.Create
+      lsn.hubb.command.Insert
+      lsn.hubb.command.Remove
+      lsn.hubb.command.Rename
+      lsn.hubb.command.Copy
+      lsn.hubb.command.Move
+      lsn.hubb.command.Download
+      lsn.hubb.command.Progress
+      lsn.hubb.command.Reorder
+      lsn.hubb.command.Batch
+      lang.createObject
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/command.js
+    tags => %{
+      lsn.hubb.command.createInstance => %{
+        tag_value => createInstance
+        tag_name => function
+        id => lsn.hubb.command.createInstance
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.getInstance2
+      hubb.getInstance
+      hubb.DataBridge
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.DataBridge
+      hubb.getInstance
+      action.ActionDispatcher
+      hubb.RootNode
+      util.Monitor
+      lang.createPrototype
+      lang.assert
+      data.addr_join
+      hubb.HashNode
+      lang.callback
+      util.args
+      util.isAssociative
+      data.addr_parent
+      lsn.hubb.command.createInstance
+      util.randomId
+      util.asInt
+      util.isArray
+      data.addr_name
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/core/DataBridge.js
+    tags => %{
+      hubb.DataBridge => %{
+        tag_value => DataBridge
+        tag_name => class
+        id => hubb.DataBridge
+        tag_info => 
+      }
+      hubb.getInstance => %{
+        tag_value => getInstance
+        tag_name => function
+        id => hubb.getInstance
+        tag_info => 
+      }
+      hubb.getInstance2 => %{
+        tag_value => getInstance2
+        tag_name => function
+        id => hubb.getInstance2
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.Node
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      util.rand8
+      lang.createPrototype
+      lang.assert
+      hubb.ScalarNode
+      data.addr_join
+      hubb.getIconByType
+      util.defined
+      units.bytesize
+      data.addr_name
+      data.addr_parent
+      console.trace
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/core/Node.js
+    tags => %{
+      hubb.Node => %{
+        tag_value => Node
+        tag_name => class
+        id => hubb.Node
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.XFR
+    }
+    dependencies => @{
+    }
+    usages => @{
+      data.XFR
+      lang.createPrototype
+      hubb.HashNode
+      hubb.ArrayNode
+      hubb.ScalarNode
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/core/XFR.js
+    tags => %{
+      hubb.XFR => %{
+        tag_value => XFR
+        tag_name => class
+        id => hubb.XFR
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ScalarNode
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.Node
+      action.ActionDispatcher
+      lang.createPrototype
+      util.defined
+      data.xfr.encodeComponent
+      dom.setAttribute
+      dom.setStyle
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/core/ScalarNode.js
+    tags => %{
+      hubb.ScalarNode => %{
+        tag_value => ScalarNode
+        tag_name => class
+        id => hubb.ScalarNode
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.HashNode
+    }
+    dependencies => @{
+    }
+    usages => @{
+      data.HashList
+      hubb.Node
+      lang.createPrototype
+      util.isa
+      util.grep
+      util.isDefined
+      util.isFunction
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/core/HashNode.js
+    tags => %{
+      hubb.HashNode => %{
+        tag_value => HashNode
+        tag_name => class
+        id => hubb.HashNode
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.RootNode
+    }
+    dependencies => @{
+    }
+    usages => @{
+      hubb.HashNode
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/core/RootNode.js
+    tags => %{
+      hubb.RootNode => %{
+        tag_value => RootNode
+        tag_name => class
+        id => hubb.RootNode
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.getIconByType
+      hubb.getIconByName
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/core/Icons.js
+    tags => %{
+      hubb.getIconByName => %{
+        tag_value => getIconByName
+        tag_name => function
+        id => hubb.getIconByName
+        tag_info => 
+      }
+      hubb.getIconByType => %{
+        tag_value => getIconByType
+        tag_name => function
+        id => hubb.getIconByType
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      hubb.ArrayNode
+    }
+    dependencies => @{
+    }
+    usages => @{
+      data.Array
+      hubb.Node
+      lang.createPrototype
+      util.isa
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/hubb/core/ArrayNode.js
+    tags => %{
+      hubb.ArrayNode => %{
+        tag_value => ArrayNode
+        tag_name => class
+        id => hubb.ArrayNode
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.app.Application
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.ui.Page
+      lsn.ui.Prompt
+      lang.createPrototype
+      dom.node.isElement
+      lang.callback
+      dom.getBody
+      dom.getAttribute
+      http.Location
+      util.isArray
+      util.args
+      dom.stopEvent
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/app/Application.js
+    tags => %{
+      lsn.app.Application => %{
+        tag_value => Application
+        tag_name => class
+        id => lsn.app.Application
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/forms/InputCheckbox.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      lsn.forms.Form
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+      lsn.forms.Fieldset
+      dom.createElement
+      dom.stopEvent
+      data.HashList
+      lsn.Request
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/forms/Form.js
+    tags => %{
+      lsn.forms.Form => %{
+        tag_value => Form
+        tag_name => class
+        id => lsn.forms.Form
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.forms.InputDecimal
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lang.createPrototype
+      util.defined
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/forms/InputDecimal.js
+    tags => %{
+      lsn.forms.InputDecimal => %{
+        tag_value => InputDecimal
+        tag_name => class
+        id => lsn.forms.InputDecimal
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.forms.InputDate
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lang.createPrototype
+      date.format
+      console.log
+      util.pad
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/forms/InputDate.js
+    tags => %{
+      lsn.forms.InputDate => %{
+        tag_value => InputDate
+        tag_name => class
+        id => lsn.forms.InputDate
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/forms/InputPassword.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      lsn.forms.Field
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.defined
+      lang.createPrototype
+      util.randomId
+      util.overlay
+      dom.getValue
+      dom.createElement
+      lsn.forms.InputText
+      lsn.forms.InputTextarea
+      lsn.forms.InputDate
+      lsn.forms.InputDecimal
+      dom.setValue
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/forms/Field.js
+    tags => %{
+      lsn.forms.Field => %{
+        tag_value => Field
+        tag_name => class
+        id => lsn.forms.Field
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+      dom.getElement
+      dom.EventListener
+      dom.getValue
+      dom.setValue
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/forms/InputBase.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      lsn.forms.Fieldset
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.forms.Field
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/forms/Fieldset.js
+    tags => %{
+      lsn.forms.Fieldset => %{
+        tag_value => Fieldset
+        tag_name => class
+        id => lsn.forms.Fieldset
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.forms.InputTextarea
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/forms/InputTextarea.js
+    tags => %{
+      lsn.forms.InputTextarea => %{
+        tag_value => InputTextarea
+        tag_name => class
+        id => lsn.forms.InputTextarea
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.forms.InputBoolean
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lang.createPrototype
+      console.log
+      util.asInt
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/forms/InputBoolean.js
+    tags => %{
+      lsn.forms.InputBoolean => %{
+        tag_value => InputBoolean
+        tag_name => class
+        id => lsn.forms.InputBoolean
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.forms.InputText
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lang.createPrototype
+      data.entities.encode
+      data.entities.decode
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/forms/InputText.js
+    tags => %{
+      lsn.forms.InputText => %{
+        tag_value => InputText
+        tag_name => class
+        id => lsn.forms.InputText
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.initDialogStyles
+      lsn.includeHead
+      lsn.includeHeadCSS
+      lsn.includeHeadJS
+      lsn.Widget
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.StyleSheet
+      lsn.includeHeadCSS
+      lsn.includeHeadJS
+      dom.include.style
+      http.Location
+      dom.include.script
+      lang.Callback
+      dom.addEventListener
+      dom.waitUntil
+      lsn.initDialogStyles
+      util.randomId
+      lsn.Request
+      dom.stopEvent
+      lang.callback
+      dom.getDescendantById
+      dom.createElement
+      util.args
+      dom.getElement
+      dom.setStyle
+      dom.removeElement
+      dom.setStyles
+      dom.getStyle
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/Widget.js
+    tags => %{
+      lsn.Widget => %{
+        tag_value => Widget
+        tag_name => class
+        id => lsn.Widget
+        tag_info => 
+      }
+      lsn.includeHead => %{
+        tag_value => includeHead
+        tag_name => function
+        id => lsn.includeHead
+        tag_info => 
+      }
+      lsn.includeHeadJS => %{
+        tag_value => includeHeadJS
+        tag_name => function
+        id => lsn.includeHeadJS
+        tag_info => 
+      }
+      lsn.includeHeadCSS => %{
+        tag_value => includeHeadCSS
+        tag_name => function
+        id => lsn.includeHeadCSS
+        tag_info => 
+      }
+      lsn.initDialogStyles => %{
+        tag_value => initDialogStyles
+        tag_name => function
+        id => lsn.initDialogStyles
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ComboBox
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.createElement
+      lsn.Mask
+      dom.EventListener
+      dom.getElement
+      dom.insertAfter
+      dom.addClassName
+      dom.setStyle
+      lsn.zIndexAlloc
+      dom.setAttribute
+      dom.getBody
+      dom.getBottom
+      dom.getViewportPosition
+      dom.removeAttribute
+      dom.removeElement
+      lsn.zIndexFree
+      dom.stopEvent
+      lang.createAbstractFunction
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ComboBox.js
+    tags => %{
+      lsn.ComboBox => %{
+        tag_value => ComboBox
+        tag_name => class
+        id => lsn.ComboBox
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      sys.System
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/sys/System.js
+    tags => %{
+      sys.System => %{
+        tag_value => System
+        tag_name => class
+        id => sys.System
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      sys.getInstance
+    }
+    dependencies => @{
+    }
+    usages => @{
+      sys.getInstance
+      sys.System
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/sys/sys.js
+    tags => %{
+      sys.getInstance => %{
+        tag_value => getInstance
+        tag_name => function
+        id => sys.getInstance
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.browser.isIE
+      dom.browser.isGecko
+      dom.getElement
+      dom.insertChildrenAfter
+      dom.createElement
+      dom.insertChildrenBefore
+      util.randomId
+      dom.getBody
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ContentController.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      lsn.Request
+    }
+    dependencies => @{
+    }
+    usages => @{
+      http.Request
+      lang.createPrototype
+      util.overlay
+      data.xfr.format
+      data.json.parse
+      data.XFR
+      dom.browser.isOpera
+      lsn.ui.LoginDialog
+      lang.createCallback
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/Request.js
+    tags => %{
+      lsn.Request => %{
+        tag_value => Request
+        tag_name => class
+        id => lsn.Request
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.Mask
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.ui.Base
+      fx.effects.Opacify
+      lang.createPrototype
+      dom.setStyle
+      dom.Canvas
+      dom.getBody
+      dom.browser.isIE
+      dom.getWidth
+      dom.getHeight
+      dom.EventListener
+      dom.appendChild
+      dom.removeElement
+      dom.createElement
+      dom.setOpacity
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/Mask.js
+    tags => %{
+      lsn.ui.Mask => %{
+        tag_value => Mask
+        tag_name => class
+        id => lsn.ui.Mask
+        tag_info => - An element which covers the entire page.
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.Element
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.args
+      dom.createElement
+      lang.createAbstractFunction
+      lang.createObject
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/Element.js
+    tags => %{
+      lsn.ui.Element => %{
+        tag_value => Element
+        tag_name => class
+        id => lsn.ui.Element
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.Banner
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.StyleSheet
+      lsn.ui.Element
+      fx.Sequencer
+      lang.createPrototype
+      dom.getElement
+      dom.setStyle
+      dom.getWidth
+      util.asInt
+      fx.Animator
+      fx.effects.Style
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/Banner.js
+    tags => %{
+      lsn.ui.Banner => %{
+        tag_value => Banner
+        tag_name => class
+        id => lsn.ui.Banner
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.zIndex
+      lsn.zIndexAlloc
+      lsn.zIndexFree
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.zIndex
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/zindex.js
+    tags => %{
+      lsn.zIndexFree => %{
+        tag_value => zIndexFree
+        tag_name => function
+        id => lsn.zIndexFree
+        tag_info => 
+      }
+      lsn.zIndex => %{
+        tag_value => zIndex
+        tag_name => function
+        id => lsn.zIndex
+        tag_info => 
+      }
+      lsn.zIndexAlloc => %{
+        tag_value => zIndexAlloc
+        tag_name => function
+        id => lsn.zIndexAlloc
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.Page
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+      dom.addEventListener
+      dom.content.hasLoaded
+      dom.StyleSheet
+      dom.setTimeout
+      dom.canvas.getPosition
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/Page.js
+    tags => %{
+      lsn.ui.Page => %{
+        tag_value => Page
+        tag_name => class
+        id => lsn.ui.Page
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.colors
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/colors.js
+    tags => %{
+      lsn.ui.colors => %{
+        tag_value => colors
+        tag_name => structure
+        id => lsn.ui.colors
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.Fragment
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.Request
+      dom.createElement
+      fx.effects.Opacify
+      lang.createPrototype
+      dom.getBody
+      dom.appendChildren
+      dom.waitUntil
+      dom.removeElement
+      dom.getElement
+      dom.setValue
+      dom.setOpacity
+      lsn.includeHeadCSS
+      lsn.includeHeadJS
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/FragmentLoader.js
+    tags => %{
+      lsn.ui.Fragment => %{
+        tag_value => Fragment
+        tag_name => class
+        id => lsn.ui.Fragment
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.StatusIcon
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.createElement
+      fx.effects.Opacify
+      lang.createPrototype
+      dom.setOpacity
+      dom.setAttribute
+      dom.setTimeout
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/StatusIcon.js
+    tags => %{
+      lsn.ui.StatusIcon => %{
+        tag_value => StatusIcon
+        tag_name => class
+        id => lsn.ui.StatusIcon
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.Base
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lsn.zIndex
+      lang.createPrototype
+      lsn.zIndexAlloc
+      lsn.zIndexFree
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/Base.js
+    tags => %{
+      lsn.ui.Base => %{
+        tag_value => Base
+        tag_name => class
+        id => lsn.ui.Base
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.Dialog
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.ui.Base
+      fx.effects.Opacify
+      lang.createPrototype
+      util.args
+      dom.getBody
+      dom.setStyle
+      dom.appendChild
+      dom.setStyles
+      dom.getContentWidth
+      dom.getContentHeight
+      dom.getViewportPosition
+      dom.removeElement
+      platform.isIE
+      dom.createElement
+      dom.setOpacity
+      dom.replaceChildren
+      dom.getElementsByTagName
+      dom.getAttribute
+      http.Location
+      dom.addEventListener
+      dom.stopEvent
+      lsn.ui.Mask
+      dom.EventListener
+      lsn.Move
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/Dialog.js
+    tags => %{
+      lsn.ui.Dialog => %{
+        tag_value => Dialog
+        tag_name => class
+        id => lsn.ui.Dialog
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.Application
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.ui.View
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/Application.js
+    tags => %{
+      lsn.Application => %{
+        tag_value => Application
+        tag_name => class
+        id => lsn.Application
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.HeaderBodyFooterDialog
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.ui.Base
+      fx.effects.Opacify
+      lang.createPrototype
+      dom.getBody
+      dom.setStyle
+      dom.appendChild
+      dom.removeElement
+      dom.createElement
+      dom.setOpacity
+      dom.EventListener
+      lsn.setMoveTarget
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/HeaderBodyFooterDialog.js
+    tags => %{
+      lsn.ui.HeaderBodyFooterDialog => %{
+        tag_value => HeaderBodyFooterDialog
+        tag_name => class
+        id => lsn.ui.HeaderBodyFooterDialog
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.LoginDialog
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.Dialog
+      lsn.Request
+      dom.KeyListener
+      dom.removeAttribute
+      dom.setAttribute
+      dom.setValue
+      dom.setClassName
+      dom.removeElement
+      dom.stopEvent
+      dom.getValue
+      lsn.auth.basic
+      lang.callback
+      http.Location
+      lang.assert
+      dom.browser.isIE
+      dom.createElement
+      lsn.auth.setAuthToken
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/LoginDialog.js
+    tags => %{
+      lsn.ui.LoginDialog => %{
+        tag_value => LoginDialog
+        tag_name => class
+        id => lsn.ui.LoginDialog
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.Prompt
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.ui.Status
+      lang.createPrototype
+      dom.createElement
+      dom.createElements
+      dom.appendChildren
+      lang.callback
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/Prompt.js
+    tags => %{
+      lsn.ui.Prompt => %{
+        tag_value => Prompt
+        tag_name => class
+        id => lsn.ui.Prompt
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.View
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/View.js
+    tags => %{
+      lsn.ui.View => %{
+        tag_value => View
+        tag_name => class
+        id => lsn.ui.View
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.Fragment
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.Request
+      dom.createElement
+      fx.effects.Opacify
+      lang.createPrototype
+      dom.getBody
+      dom.appendChildren
+      dom.waitUntil
+      dom.removeElement
+      dom.getElement
+      dom.setValue
+      dom.setOpacity
+      lsn.includeHeadCSS
+      lsn.includeHeadJS
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/Fragment.js
+    tags => %{
+      lsn.ui.Fragment => %{
+        tag_value => Fragment
+        tag_name => class
+        id => lsn.ui.Fragment
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.ui.Status
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.ui.colors
+      lang.createPrototype
+      dom.getViewportPosition
+      dom.createElement
+      dom.addClassNames
+      dom.setStyle
+      dom.getBody
+      lsn.ui.Mask
+      lsn.zIndexFree
+      dom.stopEvent
+      dom.removeElement
+      dom.createElements
+      dom.appendChildren
+      dom.setTimeout
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/ui/Status.js
+    tags => %{
+      lsn.ui.Status => %{
+        tag_value => Status
+        tag_name => class
+        id => lsn.ui.Status
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.Dialog
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.Widget
+      lang.Methods
+      util.randomId
+      util.overlay
+      lsn.zIndexAlloc
+      lsn.Mask
+      lsn.zIndexFree
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/Dialog.js
+    tags => %{
+      lsn.Dialog => %{
+        tag_value => Dialog
+        tag_name => class
+        id => lsn.Dialog
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.layout.ViewportLayout
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.ui.Page
+      lsn.layout.Area
+      lang.createPrototype
+      lsn.layout.css.createRule
+      lsn.layout.ResizeRule
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/layout/ViewportLayout.js
+    tags => %{
+      lsn.layout.ViewportLayout => %{
+        tag_value => ViewportLayout
+        tag_name => class
+        id => lsn.layout.ViewportLayout
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.layout.Area
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      util.overlay
+      util.randomId
+      lang.createPrototype
+      util.isArray
+      lsn.layout.Area
+      lsn.layout.Layout
+      util.defined
+      lsn.layout.css
+      util.args
+      util.pad
+      console.log
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/layout/Area.js
+    tags => %{
+      lsn.layout.Area => %{
+        tag_value => Area
+        tag_name => class
+        id => lsn.layout.Area
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.layout.ResizeRule
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lang.createPrototype
+      util.asInt
+      lsn.layout.css.updateRule
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/layout/ResizeRule.js
+    tags => %{
+      lsn.layout.ResizeRule => %{
+        tag_value => ResizeRule
+        tag_name => class
+        id => lsn.layout.ResizeRule
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.layout.WrapperLayout
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.ui.Page
+      lsn.layout.Area
+      util.overlay
+      lang.createPrototype
+      dom.getElementPosition
+      dom.getElement
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/layout/WrapperLayout.js
+    tags => %{
+      lsn.layout.WrapperLayout => %{
+        tag_value => WrapperLayout
+        tag_name => class
+        id => lsn.layout.WrapperLayout
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.layout.css
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.StyleSheet
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/layout/layout.js
+    tags => %{
+      lsn.layout.css => %{
+        tag_value => css
+        tag_name => instance
+        id => lsn.layout.css
+        tag_info => <ecma.dom.StyleSheet>
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.layout.Layout
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.layout.Area
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/layout/Layout.js
+    tags => %{
+      lsn.layout.Layout => %{
+        tag_value => Layout
+        tag_name => class
+        id => lsn.layout.Layout
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.DragHandle
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.overlay
+      dom.getElement
+      dom.browser.isIE
+      dom.addEventListener
+      dom.getEventPointer
+      dom.EventListener
+      lang.callback
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/DragHandle.js
+    tags => %{
+      lsn.DragHandle => %{
+        tag_value => DragHandle
+        tag_name => class
+        id => lsn.DragHandle
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      fx.Animator
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+      util.isObject
+      fx.createEffect
+      fx.AnimatorProgress
+      dom.setInterval
+      dom.clearInterval
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/fx/Animator.js
+    tags => %{
+      fx.Animator => %{
+        tag_value => Animator
+        tag_name => class
+        id => fx.Animator
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+      fx.Effect
+      lang.createPrototype
+      util.isObject
+      fx.createEffect
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/fx/effects/Combine.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      fx.effects.Opacify
+    }
+    dependencies => @{
+    }
+    usages => @{
+      fx.Effect
+      lang.createPrototype
+      dom.getElement
+      dom.setOpacity
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/fx/effects/Opacify.js
+    tags => %{
+      fx.effects.Opacify => %{
+        tag_value => Opacify
+        tag_name => class
+        id => fx.effects.Opacify
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+      fx.Effect
+      lang.createPrototype
+      dom.getElement
+      dom.getStyle
+      util.asInt
+      dom.setStyle
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/fx/effects/Swap.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      fx.effects.Style
+    }
+    dependencies => @{
+    }
+    usages => @{
+      fx.Effect
+      lang.createPrototype
+      dom.getElement
+      dom.setStyle
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/fx/effects/Style.js
+    tags => %{
+      fx.effects.Style => %{
+        tag_value => Style
+        tag_name => class
+        id => fx.effects.Style
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      fx.createEffect
+      fx.perform
+      fx.effects
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.args
+      fx.effects
+      lang.createObject
+      fx.createEffect
+      fx.perform
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/fx/fx.js
+    tags => %{
+      fx.perform => %{
+        tag_value => perform
+        tag_name => function
+        id => fx.perform
+        tag_info => 
+      }
+      fx.effects => %{
+        tag_value => effects
+        tag_name => structure
+        id => fx.effects
+        tag_info => 
+      }
+      fx.createEffect => %{
+        tag_value => createEffect
+        tag_name => function
+        id => fx.createEffect
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      fx.SequencerEvent
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionEvent
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/fx/SequencerEvent.js
+    tags => %{
+      fx.SequencerEvent => %{
+        tag_value => SequencerEvent
+        tag_name => class
+        id => fx.SequencerEvent
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      fx.AnimatorProgress
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/fx/AnimatorProgress.js
+    tags => %{
+      fx.AnimatorProgress => %{
+        tag_value => AnimatorProgress
+        tag_name => class
+        id => fx.AnimatorProgress
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      fx.Effect
+    }
+    dependencies => @{
+    }
+    usages => @{
+      fx.Animator
+      lang.callback
+      lang.createAbstractFunction
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/fx/Effect.js
+    tags => %{
+      fx.Effect => %{
+        tag_value => Effect
+        tag_name => class
+        id => fx.Effect
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      fx.Sequencer
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+      fx.SequencerEvent
+      util.defined
+      dom.clearTimeout
+      dom.setTimeout
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/fx/Sequencer.js
+    tags => %{
+      fx.Sequencer => %{
+        tag_value => Sequencer
+        tag_name => class
+        id => fx.Sequencer
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.KeyListener
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.KeyPress
+      dom.getElement
+      lang.createCallbackArray
+      lang.createPrototype
+      lang.callback
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/dom/KeyListener.js
+    tags => %{
+      dom.KeyListener => %{
+        tag_value => KeyListener
+        tag_name => class
+        id => dom.KeyListener
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.ActionAdaptor
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.ElementAdaptor
+      lang.createPrototype
+      util.args
+      dom.stopEvent
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/dom/ActionAdaptor.js
+    tags => %{
+      dom.ActionAdaptor => %{
+        tag_value => ActionAdaptor
+        tag_name => class
+        id => dom.ActionAdaptor
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.NodeStack
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lang.createPrototype
+      dom.constants.ELEMENT_NODE
+      util.grep
+      dom.removeElementOrphanChildren
+      dom.createElement
+      dom.insertAfter
+      dom.appendChildren
+      dom.removeElement
+      dom.removeAttribute
+      dom.constants.TEXT_NODE
+      util.defined
+      dom.getAttribute
+      dom.setStyle
+      dom.node.isElement
+      dom.insertBefore
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/dom/Scrubber.js
+    tags => %{
+      dom.NodeStack => %{
+        tag_value => NodeStack
+        tag_name => class
+        id => dom.NodeStack
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.ElementAdaptor
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+      lang.createAbstractFunction
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/dom/ElementAdaptor.js
+    tags => %{
+      dom.ElementAdaptor => %{
+        tag_value => ElementAdaptor
+        tag_name => class
+        id => dom.ElementAdaptor
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.ElementListener
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.addEventListener
+      dom.removeEventListener
+      lang.callback
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/dom/ElementListener.js
+    tags => %{
+      dom.ElementListener => %{
+        tag_value => ElementListener
+        tag_name => class
+        id => dom.ElementListener
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.LocationListener
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+      dom.setInterval
+      http.Location
+      dom.clearInterval
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/dom/LocationListener.js
+    tags => %{
+      dom.LocationListener => %{
+        tag_value => LocationListener
+        tag_name => class
+        id => dom.LocationListener
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.getAnchorsByRel
+      dom.findNode
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.getElementsByTagName
+      dom.getAttribute
+      dom.node.isElement
+      lang.callback
+      dom.findNode
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/dom/dom.js
+    tags => %{
+      dom.findNode => %{
+        tag_value => findNode
+        tag_name => function
+        id => dom.findNode
+        tag_info => 
+      }
+      dom.getAnchorsByRel => %{
+        tag_value => getAnchorsByRel
+        tag_name => function
+        id => dom.getAnchorsByRel
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.addElementListener
+      dom.adaptors
+      dom.addAdaptor
+      dom.attachAdaptors
+      dom.createElement
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.isArray
+      dom.selectElements
+      dom.ElementListener
+      dom.dispatcher
+      dom.adaptors
+      dom.attachAdaptors
+      dom.EventListener
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/dom/adaptors.js
+    tags => %{
+      dom.addAdaptor => %{
+        tag_value => addAdaptor
+        tag_name => function
+        id => dom.addAdaptor
+        tag_info => 
+      }
+      dom.adaptors => %{
+        tag_value => adaptors
+        tag_name => structure
+        id => dom.adaptors
+        tag_info => 
+      }
+      dom.addElementListener => %{
+        tag_value => addElementListener
+        tag_name => function
+        id => dom.addElementListener
+        tag_info => 
+      }
+      dom.attachAdaptors => %{
+        tag_value => attachAdaptors
+        tag_name => function
+        id => dom.attachAdaptors
+        tag_info => 
+      }
+      dom.createElement => %{
+        tag_value => createElement
+        tag_name => function
+        id => dom.createElement
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.ElementPosition
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.node.isElement
+      dom.getStyle
+      dom.getOpacity
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/dom/ElementPosition.js
+    tags => %{
+      dom.ElementPosition => %{
+        tag_value => ElementPosition
+        tag_name => class
+        id => dom.ElementPosition
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      http.PerlModule
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+      lsn.Request
+      lang.callback
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/http/PerlModule.js
+    tags => %{
+      http.PerlModule => %{
+        tag_value => PerlModule
+        tag_name => class
+        id => http.PerlModule
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      http.Stream
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lsn.Request
+      action.ActionDispatcher
+      lang.createPrototype
+      data.XFR
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/http/Stream.js
+    tags => %{
+      http.Stream => %{
+        tag_value => Stream
+        tag_name => class
+        id => http.Stream
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      lsn.PageLayout
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.overlay
+      dom.addEventListener
+    }
+    path => /home/ryan/code/src/lib/ecma/lsn/PageLayout.js
+    tags => %{
+      lsn.PageLayout => %{
+        tag_value => PageLayout
+        tag_name => class
+        id => lsn.PageLayout
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      error.Assertion
+      error.MissingArg
+      error.IllegalArg
+      error.Multiple
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/error/programatic.js
+    tags => %{
+      error.Multiple => %{
+        tag_value => Multiple
+        tag_name => class
+        id => error.Multiple
+        tag_info => 
+      }
+      error.IllegalArg => %{
+        tag_value => IllegalArg
+        tag_name => class
+        id => error.IllegalArg
+        tag_info => 
+      }
+      error.MissingArg => %{
+        tag_value => MissingArg
+        tag_name => class
+        id => error.MissingArg
+        tag_info => 
+      }
+      error.Assertion => %{
+        tag_value => Assertion
+        tag_name => class
+        id => error.Assertion
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/error/expected.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.args
+    }
+    path => /home/ryan/code/src/lib/ecma/error/strings.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      error.reportCaller
+      error.reportError
+    }
+    dependencies => @{
+    }
+    usages => @{
+      console.log
+    }
+    path => /home/ryan/code/src/lib/ecma/error/error.js
+    tags => %{
+      error.reportError => %{
+        tag_value => reportError
+        tag_name => function
+        id => error.reportError
+        tag_info => 
+      }
+      error.reportCaller => %{
+        tag_value => reportCaller
+        tag_name => function
+        id => error.reportCaller
+        tag_info => - For tracing who called your function
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/platform/history.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/platform/native.history.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      platform.getInfo
+      platform.Info
+      platform.isIE
+      platform.isIE8
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/platform/platform.js
+    tags => %{
+      platform.Info => %{
+        tag_value => Info
+        tag_name => class
+        id => platform.Info
+        tag_info => 
+      }
+      platform.isIE => %{
+        tag_value => isIE
+        tag_name => structure
+        id => platform.isIE
+        tag_info => 
+      }
+      platform.isIE8 => %{
+        tag_value => isIE8
+        tag_name => structure
+        id => platform.isIE8
+        tag_info => 
+      }
+      platform.getInfo => %{
+        tag_value => getInfo
+        tag_name => function
+        id => platform.getInfo
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      impl.Parameters
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.clone
+      lang.createPrototype
+      util.overlay
+    }
+    path => /home/ryan/code/src/lib/ecma/impl/Parameters.js
+    tags => %{
+      impl.Parameters => %{
+        tag_value => Parameters
+        tag_name => class
+        id => impl.Parameters
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      impl.Options
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.clone
+      lang.createPrototype
+      util.overlay
+    }
+    path => /home/ryan/code/src/lib/ecma/impl/Options.js
+    tags => %{
+      impl.Options => %{
+        tag_value => Options
+        tag_name => class
+        id => impl.Options
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      ECMAScript
+      ECMAScript.Class
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/ECMAScript.js
+    tags => %{
+      ECMAScript.Class => %{
+        tag_value => ECMAScript.Class
+        tag_name => class
+        id => ECMAScript.Class
+        tag_info => 
+      }
+      ECMAScript => %{
+        tag_value => ECMAScript
+        tag_name => class
+        id => ECMAScript
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/ua/ua.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      console.tee
+      console.log
+      console.trace
+      console.{#name}
+      console.flush
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.args
+      console.log
+      util.isFunction
+    }
+    path => /home/ryan/code/src/lib/ecma/console/console.js
+    tags => %{
+      console.flush => %{
+        tag_value => flush
+        tag_name => function
+        id => console.flush
+        tag_info => 
+      }
+      console.trace => %{
+        tag_value => trace
+        tag_name => function
+        id => console.trace
+        tag_info => 
+      }
+      console.log => %{
+        tag_value => log
+        tag_name => function
+        id => console.log
+        tag_info => 
+      }
+      console_0x2e__0x7b__0x23_name_0x7d_ => %{
+        tag_value => {#name}
+        tag_name => function
+        id => console.{#name}
+        tag_info => 
+      }
+      console.tee => %{
+        tag_value => tee
+        tag_name => function
+        id => console.tee
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      units.bytesize
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.asInt
+    }
+    path => /home/ryan/code/src/lib/ecma/units/units.js
+    tags => %{
+      units.bytesize => %{
+        tag_value => bytesize
+        tag_name => function
+        id => units.bytesize
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      util.isDefined
+      util.defined
+      util.firstDefined
+      util.isa
+      util.isString
+      util.isObject
+      util.isFunction
+      util.isCallback
+      util.isArray
+      util.isNumber
+      util.isAssociative
+      util.args
+      util.use
+      util.evar
+      util.asInt
+      util.randomId
+      util.incrementalId
+      util.rand4
+      util.rand8
+      util.createUUID
+      util.createGUID
+      util.pad
+      util.grep
+      util.overlay
+      util.clone
+      util.keys
+      util.values
+      util.step
+      util.associateArrays
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.isFunction
+      util.isArray
+      util.isObject
+      util.defined
+      util.pad
+      error.IllegalArg
+      util.args
+      util.isAssociative
+      util.overlay
+      error.reportError
+      error.Multiple
+    }
+    path => /home/ryan/code/src/lib/ecma/util/util.js
+    tags => %{
+      util.values => %{
+        tag_value => values
+        tag_name => function
+        id => util.values
+        tag_info => 
+      }
+      util.rand4 => %{
+        tag_value => rand4
+        tag_name => function
+        id => util.rand4
+        tag_info => 
+      }
+      util.associateArrays => %{
+        tag_value => associateArrays
+        tag_name => function
+        id => util.associateArrays
+        tag_info => 
+      }
+      util.isObject => %{
+        tag_value => isObject
+        tag_name => function
+        id => util.isObject
+        tag_info => 
+      }
+      util.step => %{
+        tag_value => step
+        tag_name => function
+        id => util.step
+        tag_info => 
+      }
+      util.isFunction => %{
+        tag_value => isFunction
+        tag_name => function
+        id => util.isFunction
+        tag_info => 
+      }
+      util.isDefined => %{
+        tag_value => isDefined
+        tag_name => function
+        id => util.isDefined
+        tag_info => 
+      }
+      util.firstDefined => %{
+        tag_value => firstDefined
+        tag_name => function
+        id => util.firstDefined
+        tag_info => 
+      }
+      util.isString => %{
+        tag_value => isString
+        tag_name => function
+        id => util.isString
+        tag_info => 
+      }
+      util.isAssociative => %{
+        tag_value => isAssociative
+        tag_name => function
+        id => util.isAssociative
+        tag_info => 
+      }
+      util.asInt => %{
+        tag_value => asInt
+        tag_name => function
+        id => util.asInt
+        tag_info => 
+      }
+      util.isArray => %{
+        tag_value => isArray
+        tag_name => function
+        id => util.isArray
+        tag_info => 
+      }
+      util.use => %{
+        tag_value => use
+        tag_name => function
+        id => util.use
+        tag_info => 
+      }
+      util.isa => %{
+        tag_value => isa
+        tag_name => function
+        id => util.isa
+        tag_info => 
+      }
+      util.defined => %{
+        tag_value => defined
+        tag_name => function
+        id => util.defined
+        tag_info => 
+      }
+      util.grep => %{
+        tag_value => grep
+        tag_name => function
+        id => util.grep
+        tag_info => 
+      }
+      util.rand8 => %{
+        tag_value => rand8
+        tag_name => function
+        id => util.rand8
+        tag_info => 
+      }
+      util.evar => %{
+        tag_value => evar
+        tag_name => function
+        id => util.evar
+        tag_info => 
+      }
+      util.isCallback => %{
+        tag_value => isCallback
+        tag_name => function
+        id => util.isCallback
+        tag_info => 
+      }
+      util.pad => %{
+        tag_value => pad
+        tag_name => function
+        id => util.pad
+        tag_info => 
+      }
+      util.clone => %{
+        tag_value => clone
+        tag_name => function
+        id => util.clone
+        tag_info => 
+      }
+      util.randomId => %{
+        tag_value => randomId
+        tag_name => function
+        id => util.randomId
+        tag_info => 
+      }
+      util.overlay => %{
+        tag_value => overlay
+        tag_name => function
+        id => util.overlay
+        tag_info => 
+      }
+      util.incrementalId => %{
+        tag_value => incrementalId
+        tag_name => function
+        id => util.incrementalId
+        tag_info => 
+      }
+      util.keys => %{
+        tag_value => keys
+        tag_name => function
+        id => util.keys
+        tag_info => 
+      }
+      util.createUUID => %{
+        tag_value => createUUID
+        tag_name => function
+        id => util.createUUID
+        tag_info => 
+      }
+      util.isNumber => %{
+        tag_value => isNumber
+        tag_name => function
+        id => util.isNumber
+        tag_info => 
+      }
+      util.args => %{
+        tag_value => args
+        tag_name => function
+        id => util.args
+        tag_info => 
+      }
+      util.createGUID => %{
+        tag_value => createGUID
+        tag_name => function
+        id => util.createGUID
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/util/underscore.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      util.Monitor
+    }
+    dependencies => @{
+    }
+    usages => @{
+      impl.Parameters
+      lang.createPrototype
+      dom.clearTimeout
+      console.log
+      dom.setTimeout
+    }
+    path => /home/ryan/code/src/lib/ecma/util/Monitor.js
+    tags => %{
+      util.Monitor => %{
+        tag_value => Monitor
+        tag_name => class
+        id => util.Monitor
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      thread.spawn
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lang.createCallbackArray
+      dom.setTimeout
+    }
+    path => /home/ryan/code/src/lib/ecma/threads/threads.js
+    tags => %{
+      thread.spawn => %{
+        tag_value => spawn
+        tag_name => function
+        id => thread.spawn
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      date.format
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/date/date.js
+    tags => %{
+      date.format => %{
+        tag_value => format
+        tag_name => function
+        id => date.format
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      action.ActionEvent
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/action/ActionEvent.js
+    tags => %{
+      action.ActionEvent => %{
+        tag_value => ActionEvent
+        tag_name => class
+        id => action.ActionEvent
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      action.HandlerPool
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      action.Handler
+      lang.createCallbackArray
+      util.args
+    }
+    path => /home/ryan/code/src/lib/ecma/action/HandlerPool.js
+    tags => %{
+      action.HandlerPool => %{
+        tag_value => HandlerPool
+        tag_name => class
+        id => action.HandlerPool
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      action.ActionListener
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lang.createCallbackArray
+      util.args
+      thread.spawn
+    }
+    path => /home/ryan/code/src/lib/ecma/action/ActionListener.js
+    tags => %{
+      action.ActionListener => %{
+        tag_value => ActionListener
+        tag_name => class
+        id => action.ActionListener
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      action.ActionDispatcher
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionListener
+      lang.createCallbackArray
+      util.args
+      util.step
+      util.isa
+      util.isAssociative
+      action.ActionEvent
+      util.overlay
+    }
+    path => /home/ryan/code/src/lib/ecma/action/ActionDispatcher.js
+    tags => %{
+      action.ActionDispatcher => %{
+        tag_value => ActionDispatcher
+        tag_name => class
+        id => action.ActionDispatcher
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      action.Handler
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionListener
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/action/Handler.js
+    tags => %{
+      action.Handler => %{
+        tag_value => Handler
+        tag_name => class
+        id => action.Handler
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      crypt.hex_sha1
+      crypt.b64_sha1
+      crypt.str_sha1
+      crypt.hex_hmac_sha1
+      crypt.b64_hmac_sha1
+      crypt.str_hmac_sha1
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/crypt/sha1.js
+    tags => %{
+      crypt.str_hmac_sha1 => %{
+        tag_value => str_hmac_sha1
+        tag_name => function
+        id => crypt.str_hmac_sha1
+        tag_info => 
+      }
+      crypt.hex_hmac_sha1 => %{
+        tag_value => hex_hmac_sha1
+        tag_name => function
+        id => crypt.hex_hmac_sha1
+        tag_info => 
+      }
+      crypt.b64_sha1 => %{
+        tag_value => b64_sha1
+        tag_name => function
+        id => crypt.b64_sha1
+        tag_info => 
+      }
+      crypt.b64_hmac_sha1 => %{
+        tag_value => b64_hmac_sha1
+        tag_name => function
+        id => crypt.b64_hmac_sha1
+        tag_info => 
+      }
+      crypt.hex_sha1 => %{
+        tag_value => hex_sha1
+        tag_name => function
+        id => crypt.hex_sha1
+        tag_info => 
+      }
+      crypt.str_sha1 => %{
+        tag_value => str_sha1
+        tag_name => function
+        id => crypt.str_sha1
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      js
+      js.extend
+      js.window
+      js.document
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/global.js
+    tags => %{
+      js.window => %{
+        tag_value => window
+        tag_name => member
+        id => js.window
+        tag_info => 
+      }
+      js.document => %{
+        tag_value => document
+        tag_name => member
+        id => js.document
+        tag_info => 
+      }
+      js => %{
+        tag_value => js
+        tag_name => global
+        id => js
+        tag_info => 
+      }
+      js.extend => %{
+        tag_value => extend
+        tag_name => function
+        id => js.extend
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      sandbox.app.getInstance
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.randomId
+      sandbox.app.getInstance
+    }
+    path => /home/ryan/code/src/lib/ecma/sandbox/app/app.js
+    tags => %{
+      sandbox.app.getInstance => %{
+        tag_value => getInstance
+        tag_name => function
+        id => sandbox.app.getInstance
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.getBody
+      dom.getElementsByTagName
+      dom.getAttribute
+      dom.getStyle
+      dom.getScrollableParent
+      dom.getHeight
+      dom.getTop
+      dom.getBottom
+      util.asInt
+    }
+    path => /home/ryan/code/src/lib/ecma/sandbox/dom.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      dom.KeyPress
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.browser.isIE
+      dom.browser.isGecko
+      action.ActionDispatcher
+      lang.createPrototype
+      util.args
+      dom.EventListener
+      dom.getElement
+      lang.assert
+      util.step
+      lang.callback
+      util.defined
+      util.pad
+      console.log
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/KeyPress.js
+    tags => %{
+      dom.KeyPress => %{
+        tag_value => KeyPress
+        tag_name => class
+        id => dom.KeyPress
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.StyleSheet
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.isAssociative
+      util.randomId
+      dom.getElement
+      dom.selectElements
+      dom.insertBefore
+      dom.insertAfter
+      dom.getHead
+      util.defined
+      util.asCamelCaseName
+      util.asHyphenatedName
+      dom.setStyle
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/StyleSheet.js
+    tags => %{
+      dom.StyleSheet => %{
+        tag_value => StyleSheet
+        tag_name => class
+        id => dom.StyleSheet
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.dispatcher
+      dom.addActionListener
+      dom.removeActionListener
+      dom.executeClassAction
+      dom.executeAction
+      dom.dispatchAction
+      dom.dispatchClassAction
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createProxyFunction
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/actions.js
+    tags => %{
+      dom.removeActionListener => %{
+        tag_value => removeActionListener
+        tag_name => function
+        id => dom.removeActionListener
+        tag_info => 
+      }
+      dom.executeAction => %{
+        tag_value => executeAction
+        tag_name => function
+        id => dom.executeAction
+        tag_info => 
+      }
+      dom.dispatchAction => %{
+        tag_value => dispatchAction
+        tag_name => function
+        id => dom.dispatchAction
+        tag_info => 
+      }
+      dom.executeClassAction => %{
+        tag_value => executeClassAction
+        tag_name => function
+        id => dom.executeClassAction
+        tag_info => 
+      }
+      dom.addActionListener => %{
+        tag_value => addActionListener
+        tag_name => function
+        id => dom.addActionListener
+        tag_info => 
+      }
+      dom.dispatchClassAction => %{
+        tag_value => dispatchClassAction
+        tag_name => function
+        id => dom.dispatchClassAction
+        tag_info => 
+      }
+      dom.dispatcher => %{
+        tag_value => dispatcher
+        tag_name => instance
+        id => dom.dispatcher
+        tag_info => <ecma.action.ActionDispatcher>
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.constants.ELEMENT_NODE
+      dom.constants.ATTRIBUTE_NODE
+      dom.constants.TEXT_NODE
+      dom.constants.CDATA_SECTION_NODE
+      dom.constants.ENTITY_REFERENCE_NODE
+      dom.constants.ENTITY_NODE
+      dom.constants.PROCESSING_INSTRUCTION_NODE
+      dom.constants.COMMENT_NODE
+      dom.constants.DOCUMENT_NODE
+      dom.constants.DOCUMENT_TYPE_NODE
+      dom.constants.DOCUMENT_FRAGMENT_NODE
+      dom.constants.NOTATION_NODE
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/constants.js
+    tags => %{
+      dom.constants.COMMENT_NODE => %{
+        tag_value => COMMENT_NODE
+        tag_name => member
+        id => dom.constants.COMMENT_NODE
+        tag_info => 
+      }
+      dom.constants.TEXT_NODE => %{
+        tag_value => TEXT_NODE
+        tag_name => member
+        id => dom.constants.TEXT_NODE
+        tag_info => 
+      }
+      dom.constants.PROCESSING_INSTRUCTION_NODE => %{
+        tag_value => PROCESSING_INSTRUCTION_NODE
+        tag_name => member
+        id => dom.constants.PROCESSING_INSTRUCTION_NODE
+        tag_info => 
+      }
+      dom.constants.ENTITY_NODE => %{
+        tag_value => ENTITY_NODE
+        tag_name => member
+        id => dom.constants.ENTITY_NODE
+        tag_info => 
+      }
+      dom.constants.ENTITY_REFERENCE_NODE => %{
+        tag_value => ENTITY_REFERENCE_NODE
+        tag_name => member
+        id => dom.constants.ENTITY_REFERENCE_NODE
+        tag_info => 
+      }
+      dom.constants.DOCUMENT_NODE => %{
+        tag_value => DOCUMENT_NODE
+        tag_name => member
+        id => dom.constants.DOCUMENT_NODE
+        tag_info => 
+      }
+      dom.constants.ATTRIBUTE_NODE => %{
+        tag_value => ATTRIBUTE_NODE
+        tag_name => member
+        id => dom.constants.ATTRIBUTE_NODE
+        tag_info => 
+      }
+      dom.constants.DOCUMENT_TYPE_NODE => %{
+        tag_value => DOCUMENT_TYPE_NODE
+        tag_name => member
+        id => dom.constants.DOCUMENT_TYPE_NODE
+        tag_info => 
+      }
+      dom.constants.ELEMENT_NODE => %{
+        tag_value => ELEMENT_NODE
+        tag_name => member
+        id => dom.constants.ELEMENT_NODE
+        tag_info => 
+      }
+      dom.constants.DOCUMENT_FRAGMENT_NODE => %{
+        tag_value => DOCUMENT_FRAGMENT_NODE
+        tag_name => member
+        id => dom.constants.DOCUMENT_FRAGMENT_NODE
+        tag_info => 
+      }
+      dom.constants.NOTATION_NODE => %{
+        tag_value => NOTATION_NODE
+        tag_name => member
+        id => dom.constants.NOTATION_NODE
+        tag_info => 
+      }
+      dom.constants.CDATA_SECTION_NODE => %{
+        tag_value => CDATA_SECTION_NODE
+        tag_name => member
+        id => dom.constants.CDATA_SECTION_NODE
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      console.Opera
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.browser.isOpera
+      console.tee
+      console.flush
+      util.args
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/console.js
+    tags => %{
+      console.Opera => %{
+        tag_value => Opera
+        tag_name => class
+        id => console.Opera
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.Canvas
+      dom.getCanvasPosition
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.getBody
+      lang.createPrototype
+      dom.getWidth
+      dom.browser.isIE
+      dom.getHeight
+      dom.Canvas
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/Canvas.js
+    tags => %{
+      dom.getCanvasPosition => %{
+        tag_value => getCanvasPosition
+        tag_name => function
+        id => dom.getCanvasPosition
+        tag_info => 
+      }
+      dom.Canvas => %{
+        tag_value => Canvas
+        tag_name => class
+        id => dom.Canvas
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/_sizzle.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      dom.LocalStorage
+    }
+    dependencies => @{
+    }
+    usages => @{
+      data.json
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/LocalStorage.js
+    tags => %{
+      dom.LocalStorage => %{
+        tag_value => LocalStorage
+        tag_name => class
+        id => dom.LocalStorage
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.selectElements
+      dom.sizzle
+      dom.selectElement
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/sizzle.js
+    tags => %{
+      dom.selectElements => %{
+        tag_value => selectElements
+        tag_name => function
+        id => dom.selectElements
+        tag_info => 
+      }
+      dom.selectElement => %{
+        tag_value => selectElement
+        tag_name => function
+        id => dom.selectElement
+        tag_info => 
+      }
+      dom.sizzle => %{
+        tag_value => sizzle
+        tag_name => function
+        id => dom.sizzle
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.query
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/jquery.js
+    tags => %{
+      dom.query => %{
+        tag_value => query
+        tag_name => function
+        id => dom.query
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.node.isElement
+      dom.node.isAttribute
+      dom.node.isText
+      dom.node.isCdataSection
+      dom.node.isEntityReference
+      dom.node.isEntity
+      dom.node.isProcessingInstruction
+      dom.node.isComment
+      dom.node.isDocument
+      dom.node.isDocumentType
+      dom.node.isDocumentFragment
+      dom.node.isNotation
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.getElement
+      dom.constants.ELEMENT_NODE
+      dom.constants.ATTRIBUTE_NODE
+      dom.constants.TEXT_NODE
+      dom.constants.CDATA_SECTION_NODE
+      dom.constants.ENTITY_REFERENCE_NODE
+      dom.constants.ENTITY_NODE
+      dom.constants.PROCESSING_INSTRUCTION_NODE
+      dom.constants.COMMENT_NODE
+      dom.constants.DOCUMENT_NODE
+      dom.constants.DOCUMENT_TYPE_NODE
+      dom.constants.DOCUMENT_FRAGMENT_NODE
+      dom.constants.NOTATION_NODE
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/node.js
+    tags => %{
+      dom.node.isDocumentType => %{
+        tag_value => isDocumentType
+        tag_name => function
+        id => dom.node.isDocumentType
+        tag_info => 
+      }
+      dom.node.isEntityReference => %{
+        tag_value => isEntityReference
+        tag_name => function
+        id => dom.node.isEntityReference
+        tag_info => 
+      }
+      dom.node.isElement => %{
+        tag_value => isElement
+        tag_name => function
+        id => dom.node.isElement
+        tag_info => 
+      }
+      dom.node.isDocument => %{
+        tag_value => isDocument
+        tag_name => function
+        id => dom.node.isDocument
+        tag_info => 
+      }
+      dom.node.isCdataSection => %{
+        tag_value => isCdataSection
+        tag_name => function
+        id => dom.node.isCdataSection
+        tag_info => 
+      }
+      dom.node.isText => %{
+        tag_value => isText
+        tag_name => function
+        id => dom.node.isText
+        tag_info => 
+      }
+      dom.node.isDocumentFragment => %{
+        tag_value => isDocumentFragment
+        tag_name => function
+        id => dom.node.isDocumentFragment
+        tag_info => 
+      }
+      dom.node.isComment => %{
+        tag_value => isComment
+        tag_name => function
+        id => dom.node.isComment
+        tag_info => 
+      }
+      dom.node.isEntity => %{
+        tag_value => isEntity
+        tag_name => function
+        id => dom.node.isEntity
+        tag_info => 
+      }
+      dom.node.isProcessingInstruction => %{
+        tag_value => isProcessingInstruction
+        tag_name => function
+        id => dom.node.isProcessingInstruction
+        tag_info => 
+      }
+      dom.node.isNotation => %{
+        tag_value => isNotation
+        tag_name => function
+        id => dom.node.isNotation
+        tag_info => 
+      }
+      dom.node.isAttribute => %{
+        tag_value => isAttribute
+        tag_name => function
+        id => dom.node.isAttribute
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.content
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+      dom.content.dispatchAction
+      dom.content.hasLoaded
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/ContentLoaded.js
+    tags => %{
+      dom.content => %{
+        tag_value => content
+        tag_name => instance
+        id => dom.content
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.condense
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.grep
+      dom.constants.ELEMENT_NODE
+      dom.condense
+      dom.constants.TEXT_NODE
+      dom.node.isElement
+      dom.removeElement
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/condense.js
+    tags => %{
+      dom.condense => %{
+        tag_value => condense
+        tag_name => function
+        id => dom.condense
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.include.hasLoaded
+      dom.include.script
+      dom.include.scripts
+      dom.include.style
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.getRootElement
+      dom.createElement
+      dom.getEventTarget
+      dom.browser.isIE
+      lang.callback
+      dom.selectElement
+      util.randomId
+      lang.createCallback
+      dom.addEventListener
+      dom.getElement
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/include.js
+    tags => %{
+      dom.include.style => %{
+        tag_value => style
+        tag_name => function
+        id => dom.include.style
+        tag_info => 
+      }
+      dom.include.hasLoaded => %{
+        tag_value => hasLoaded
+        tag_name => function
+        id => dom.include.hasLoaded
+        tag_info => 
+      }
+      dom.include.script => %{
+        tag_value => script
+        tag_name => function
+        id => dom.include.script
+        tag_info => 
+      }
+      dom.include.scripts => %{
+        tag_value => scripts
+        tag_name => function
+        id => dom.include.scripts
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.query
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.StyleSheet
+      dom.getElement
+      dom.getStyle
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/query.js
+    tags => %{
+      dom.query => %{
+        tag_value => query
+        tag_name => function
+        id => dom.query
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.getXPath
+      dom.getChildIndex
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.getElement
+      dom.node.isElement
+      dom.getChildIndex
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/xpath.js
+    tags => %{
+      dom.getXPath => %{
+        tag_value => getXPath
+        tag_name => function
+        id => dom.getXPath
+        tag_info => 
+      }
+      dom.getChildIndex => %{
+        tag_value => getChildIndex
+        tag_name => function
+        id => dom.getChildIndex
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.EventListener
+    }
+    dependencies => @{
+    }
+    usages => @{
+      dom.getElement
+      dom.addEventListener
+      dom.removeEventListener
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/EventListener.js
+    tags => %{
+      dom.EventListener => %{
+        tag_value => EventListener
+        tag_name => class
+        id => dom.EventListener
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      dom.browser
+      dom.browser.isIE
+      dom.browser.isOpera
+      dom.browser.isWebKit
+      dom.browser.isGecko
+      dom.browser.isMobileSafari
+      dom.getEventPointer
+      dom.getEventTarget
+      dom.addEventListener
+      dom.removeEventListener
+      dom.stopEvent
+      dom.setTimeout
+      dom.clearTimeout
+      dom.setInterval
+      dom.clearInterval
+      dom.waitUntil
+      dom.getRootElement
+      dom.getHead
+      dom.getBody
+      dom.getFrame
+      dom.getContentWindow
+      dom.getContentDocument
+      dom.getContentJS
+      dom.getElementsByNodeType
+      dom.getElementsByClassName
+      dom.getElementsByAttribute
+      dom.getElementsByTagName
+      dom.canvas
+      dom.canvas.getPosition
+      dom.canvas.windowX
+      dom.canvas.windowY
+      dom.canvas.scrollX
+      dom.canvas.scrollY
+      dom.canvas.pageX
+      dom.canvas.pageY
+      dom.getViewportPosition
+      dom.getElement
+      dom.getParentElement
+      dom.getDescendantById
+      dom.createElement
+      dom.createElements
+      dom.replaceChildren
+      dom.appendChildren
+      dom.appendChild
+      dom.prependChild
+      dom.insertChildrenAfter
+      dom.insertChildrenBefore
+      dom.insertBefore
+      dom.insertAfter
+      dom.removeChildren
+      dom.removeElement
+      dom.removeElements
+      dom.removeElementOrphanChildren
+      dom.insertElementAdoptChildren
+      dom.replaceElement
+      dom.isChildOf
+      dom.makePositioned
+      dom.getStyle
+      dom.setStyle
+      dom.translateAttributeName
+      dom.translateStyleName
+      dom.setStyles
+      dom.removeStyle
+      dom.hasClassName
+      dom.setClassName
+      dom.addClassName
+      dom.addClassNames
+      dom.removeClassName
+      dom.removeClassNames
+      dom.toggleClassName
+      dom.getAttribute
+      dom.setAttribute
+      dom.removeAttribute
+      dom.getOpacity
+      dom.setOpacity
+      dom.getCenteredPosition
+      dom.setPosition
+      dom.getElementPosition
+      dom.getInnerPosition
+      dom.getTop
+      dom.getBottom
+      dom.getLeft
+      dom.getRight
+      dom.getWidth
+      dom.getHeight
+      dom.getInnerTop
+      dom.getInnerBottom
+      dom.getInnerLeft
+      dom.getInnerRight
+      dom.getInnerWidth
+      dom.getInnerHeight
+      dom.getContentWidth
+      dom.getContentHeight
+      dom.getValues
+      dom.getValue
+      dom.setValue
+      dom.clearSelection
+      dom.toggleDisplay
+      dom.getScrollableParent
+      dom.scrollTo
+      util.asHyphenatedName
+      util.asCamelCaseName
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.args
+      util.isArray
+      dom.getRootElement
+      dom.getElement
+      dom.content.hasLoaded
+      lang.callback
+      dom.content.addActionListener
+      util.defined
+      dom.setTimeout
+      dom.getBody
+      dom.getFrame
+      dom.getContentDocument
+      dom.getContentWindow
+      http.isSameOrigin
+      dom.hasClassName
+      dom.constants.ELEMENT_NODE
+      dom.getAttribute
+      util.grep
+      dom.canvas.windowX
+      dom.canvas.windowY
+      dom.canvas.scrollX
+      dom.canvas.scrollY
+      dom.canvas.pageX
+      dom.canvas.pageY
+      util.asInt
+      dom.canvas.getPosition
+      dom.getDescendantById
+      dom.setStyle
+      dom.setAttribute
+      dom.appendChildren
+      dom.createElements
+      lang.assert
+      util.isAssociative
+      dom.createElement
+      dom.removeChildren
+      dom.insertChildrenAfter
+      dom.insertAfter
+      dom.insertChildrenBefore
+      dom.removeElements
+      dom.removeElement
+      dom.getStyle
+      dom.browser.isOpera
+      dom.translateStyleName
+      util.asHyphenatedName
+      util.asCamelCaseName
+      dom.browser.isIE
+      console.log
+      platform.isIE
+      error.MissingArg
+      dom.addClassNames
+      dom.addClassName
+      dom.removeClassName
+      dom.translateAttributeName
+      dom.addEventListener
+      dom.browser.isGecko
+      util.isDefined
+      dom.browser.isWebKit
+      dom.getElementPosition
+      dom.getViewportPosition
+      dom.getCenteredPosition
+      dom.getHeight
+      dom.getLeft
+      dom.getTop
+      dom.getWidth
+      dom.getInnerTop
+      dom.getInnerLeft
+      dom.getInnerRight
+      dom.getInnerBottom
+      dom.getInnerWidth
+      dom.getInnerHeight
+      dom.node.isText
+      dom.getValue
+      dom.replaceChildren
+      dom.getBottom
+    }
+    path => /home/ryan/code/src/lib/ecma/dom/dom.js
+    tags => %{
+      dom.browser.isIE => %{
+        tag_value => isIE
+        tag_name => member
+        id => dom.browser.isIE
+        tag_info => 
+      }
+      dom.getContentHeight => %{
+        tag_value => getContentHeight
+        tag_name => function
+        id => dom.getContentHeight
+        tag_info => 
+      }
+      dom.getInnerWidth => %{
+        tag_value => getInnerWidth
+        tag_name => function
+        id => dom.getInnerWidth
+        tag_info => 
+      }
+      dom.getElementsByClassName => %{
+        tag_value => getElementsByClassName
+        tag_name => function
+        id => dom.getElementsByClassName
+        tag_info => 
+      }
+      dom.getHeight => %{
+        tag_value => getHeight
+        tag_name => function
+        id => dom.getHeight
+        tag_info => 
+      }
+      dom.makePositioned => %{
+        tag_value => makePositioned
+        tag_name => function
+        id => dom.makePositioned
+        tag_info => 
+      }
+      dom.toggleDisplay => %{
+        tag_value => toggleDisplay
+        tag_name => function
+        id => dom.toggleDisplay
+        tag_info => 
+      }
+      dom.removeEventListener => %{
+        tag_value => removeEventListener
+        tag_name => function
+        id => dom.removeEventListener
+        tag_info => 
+      }
+      dom.scrollTo => %{
+        tag_value => scrollTo
+        tag_name => function
+        id => dom.scrollTo
+        tag_info => 
+      }
+      dom.setStyles => %{
+        tag_value => setStyles
+        tag_name => function
+        id => dom.setStyles
+        tag_info => 
+      }
+      dom.getOpacity => %{
+        tag_value => getOpacity
+        tag_name => function
+        id => dom.getOpacity
+        tag_info => 
+      }
+      dom.canvas.scrollY => %{
+        tag_value => scrollY
+        tag_name => function
+        id => dom.canvas.scrollY
+        tag_info => 
+      }
+      dom.getInnerLeft => %{
+        tag_value => getInnerLeft
+        tag_name => function
+        id => dom.getInnerLeft
+        tag_info => 
+      }
+      dom.getLeft => %{
+        tag_value => getLeft
+        tag_name => function
+        id => dom.getLeft
+        tag_info => 
+      }
+      dom.browser.isWebKit => %{
+        tag_value => isWebKit
+        tag_name => member
+        id => dom.browser.isWebKit
+        tag_info => 
+      }
+      dom.getElementPosition => %{
+        tag_value => getElementPosition
+        tag_name => function
+        id => dom.getElementPosition
+        tag_info => 
+      }
+      dom.getContentWindow => %{
+        tag_value => getContentWindow
+        tag_name => function
+        id => dom.getContentWindow
+        tag_info => 
+      }
+      dom.browser.isGecko => %{
+        tag_value => isGecko
+        tag_name => member
+        id => dom.browser.isGecko
+        tag_info => 
+      }
+      dom.getParentElement => %{
+        tag_value => getParentElement
+        tag_name => function
+        id => dom.getParentElement
+        tag_info => 
+      }
+      dom.getValue => %{
+        tag_value => getValue
+        tag_name => function
+        id => dom.getValue
+        tag_info => 
+      }
+      dom.getHead => %{
+        tag_value => getHead
+        tag_name => function
+        id => dom.getHead
+        tag_info => 
+      }
+      dom.getScrollableParent => %{
+        tag_value => getScrollableParent
+        tag_name => function
+        id => dom.getScrollableParent
+        tag_info => 
+      }
+      dom.translateAttributeName => %{
+        tag_value => translateAttributeName
+        tag_name => function
+        id => dom.translateAttributeName
+        tag_info => 
+      }
+      dom.removeChildren => %{
+        tag_value => removeChildren
+        tag_name => function
+        id => dom.removeChildren
+        tag_info => 
+      }
+      dom.getCenteredPosition => %{
+        tag_value => getCenteredPosition
+        tag_name => function
+        id => dom.getCenteredPosition
+        tag_info => 
+      }
+      util.asCamelCaseName => %{
+        tag_value => asCamelCaseName
+        tag_name => function
+        id => util.asCamelCaseName
+        tag_info => 
+      }
+      dom.getViewportPosition => %{
+        tag_value => getViewportPosition
+        tag_name => function
+        id => dom.getViewportPosition
+        tag_info => 
+      }
+      dom.removeStyle => %{
+        tag_value => removeStyle
+        tag_name => function
+        id => dom.removeStyle
+        tag_info => 
+      }
+      dom.createElement => %{
+        tag_value => createElement
+        tag_name => function
+        id => dom.createElement
+        tag_info => 
+      }
+      dom.getElementsByTagName => %{
+        tag_value => getElementsByTagName
+        tag_name => function
+        id => dom.getElementsByTagName
+        tag_info => 
+      }
+      dom.setValue => %{
+        tag_value => setValue
+        tag_name => function
+        id => dom.setValue
+        tag_info => 
+      }
+      dom.getInnerRight => %{
+        tag_value => getInnerRight
+        tag_name => function
+        id => dom.getInnerRight
+        tag_info => 
+      }
+      dom.addClassNames => %{
+        tag_value => addClassNames
+        tag_name => function
+        id => dom.addClassNames
+        tag_info => 
+      }
+      dom.browser.isMobileSafari => %{
+        tag_value => isMobileSafari
+        tag_name => member
+        id => dom.browser.isMobileSafari
+        tag_info => 
+      }
+      dom.clearInterval => %{
+        tag_value => clearInterval
+        tag_name => function
+        id => dom.clearInterval
+        tag_info => 
+      }
+      dom.getFrame => %{
+        tag_value => getFrame
+        tag_name => function
+        id => dom.getFrame
+        tag_info => 
+      }
+      dom.addClassName => %{
+        tag_value => addClassName
+        tag_name => function
+        id => dom.addClassName
+        tag_info => 
+      }
+      dom.getAttribute => %{
+        tag_value => getAttribute
+        tag_name => function
+        id => dom.getAttribute
+        tag_info => 
+      }
+      dom.getEventPointer => %{
+        tag_value => getEventPointer
+        tag_name => function
+        id => dom.getEventPointer
+        tag_info => 
+      }
+      dom.getContentDocument => %{
+        tag_value => getContentDocument
+        tag_name => function
+        id => dom.getContentDocument
+        tag_info => 
+      }
+      dom.getStyle => %{
+        tag_value => getStyle
+        tag_name => function
+        id => dom.getStyle
+        tag_info => 
+      }
+      dom.removeAttribute => %{
+        tag_value => removeAttribute
+        tag_name => function
+        id => dom.removeAttribute
+        tag_info => 
+      }
+      dom.insertAfter => %{
+        tag_value => insertAfter
+        tag_name => function
+        id => dom.insertAfter
+        tag_info => 
+      }
+      dom.isChildOf => %{
+        tag_value => isChildOf
+        tag_name => function
+        id => dom.isChildOf
+        tag_info => 
+      }
+      dom.prependChild => %{
+        tag_value => prependChild
+        tag_name => function
+        id => dom.prependChild
+        tag_info => 
+      }
+      dom.insertElementAdoptChildren => %{
+        tag_value => insertElementAdoptChildren
+        tag_name => function
+        id => dom.insertElementAdoptChildren
+        tag_info => 
+      }
+      dom.getElementsByNodeType => %{
+        tag_value => getElementsByNodeType
+        tag_name => function
+        id => dom.getElementsByNodeType
+        tag_info => 
+      }
+      dom.removeClassNames => %{
+        tag_value => removeClassNames
+        tag_name => function
+        id => dom.removeClassNames
+        tag_info => 
+      }
+      dom.canvas.getPosition => %{
+        tag_value => getPosition
+        tag_name => function
+        id => dom.canvas.getPosition
+        tag_info => 
+      }
+      dom.getElementsByAttribute => %{
+        tag_value => getElementsByAttribute
+        tag_name => function
+        id => dom.getElementsByAttribute
+        tag_info => 
+      }
+      util.asHyphenatedName => %{
+        tag_value => asHyphenatedName
+        tag_name => function
+        id => util.asHyphenatedName
+        tag_info => 
+      }
+      dom.createElements => %{
+        tag_value => createElements
+        tag_name => function
+        id => dom.createElements
+        tag_info => 
+      }
+      dom.getRight => %{
+        tag_value => getRight
+        tag_name => function
+        id => dom.getRight
+        tag_info => 
+      }
+      dom.setInterval => %{
+        tag_value => setInterval
+        tag_name => function
+        id => dom.setInterval
+        tag_info => 
+      }
+      dom.getRootElement => %{
+        tag_value => getRootElement
+        tag_name => function
+        id => dom.getRootElement
+        tag_info => 
+      }
+      dom.getContentJS => %{
+        tag_value => getContentJS
+        tag_name => function
+        id => dom.getContentJS
+        tag_info => 
+      }
+      dom.canvas.pageY => %{
+        tag_value => pageY
+        tag_name => function
+        id => dom.canvas.pageY
+        tag_info => 
+      }
+      dom.getBody => %{
+        tag_value => getBody
+        tag_name => function
+        id => dom.getBody
+        tag_info => 
+      }
+      dom.canvas.windowX => %{
+        tag_value => windowX
+        tag_name => function
+        id => dom.canvas.windowX
+        tag_info => 
+      }
+      dom.setPosition => %{
+        tag_value => setPosition
+        tag_name => function
+        id => dom.setPosition
+        tag_info => 
+      }
+      dom.insertBefore => %{
+        tag_value => insertBefore
+        tag_name => function
+        id => dom.insertBefore
+        tag_info => 
+      }
+      dom.getValues => %{
+        tag_value => getValues
+        tag_name => function
+        id => dom.getValues
+        tag_info => 
+      }
+      dom.toggleClassName => %{
+        tag_value => toggleClassName
+        tag_name => function
+        id => dom.toggleClassName
+        tag_info => 
+      }
+      dom.getDescendantById => %{
+        tag_value => getDescendantById
+        tag_name => function
+        id => dom.getDescendantById
+        tag_info => 
+      }
+      dom.getInnerPosition => %{
+        tag_value => getInnerPosition
+        tag_name => function
+        id => dom.getInnerPosition
+        tag_info => 
+      }
+      dom.addEventListener => %{
+        tag_value => addEventListener
+        tag_name => function
+        id => dom.addEventListener
+        tag_info => 
+      }
+      dom.getEventTarget => %{
+        tag_value => getEventTarget
+        tag_name => function
+        id => dom.getEventTarget
+        tag_info => 
+      }
+      dom.browser => %{
+        tag_value => browser
+        tag_name => structure
+        id => dom.browser
+        tag_info => 
+      }
+      dom.canvas.scrollX => %{
+        tag_value => scrollX
+        tag_name => function
+        id => dom.canvas.scrollX
+        tag_info => 
+      }
+      dom.removeElements => %{
+        tag_value => removeElements
+        tag_name => function
+        id => dom.removeElements
+        tag_info => 
+      }
+      dom.clearSelection => %{
+        tag_value => clearSelection
+        tag_name => function
+        id => dom.clearSelection
+        tag_info => 
+      }
+      dom.getTop => %{
+        tag_value => getTop
+        tag_name => function
+        id => dom.getTop
+        tag_info => 
+      }
+      dom.removeElement => %{
+        tag_value => removeElement
+        tag_name => function
+        id => dom.removeElement
+        tag_info => 
+      }
+      dom.removeElementOrphanChildren => %{
+        tag_value => removeElementOrphanChildren
+        tag_name => function
+        id => dom.removeElementOrphanChildren
+        tag_info => 
+      }
+      dom.getBottom => %{
+        tag_value => getBottom
+        tag_name => function
+        id => dom.getBottom
+        tag_info => 
+      }
+      dom.insertChildrenBefore => %{
+        tag_value => insertChildrenBefore
+        tag_name => function
+        id => dom.insertChildrenBefore
+        tag_info => 
+      }
+      dom.getInnerHeight => %{
+        tag_value => getInnerHeight
+        tag_name => function
+        id => dom.getInnerHeight
+        tag_info => 
+      }
+      dom.setOpacity => %{
+        tag_value => setOpacity
+        tag_name => function
+        id => dom.setOpacity
+        tag_info => 
+      }
+      dom.clearTimeout => %{
+        tag_value => clearTimeout
+        tag_name => function
+        id => dom.clearTimeout
+        tag_info => 
+      }
+      dom.appendChildren => %{
+        tag_value => appendChildren
+        tag_name => function
+        id => dom.appendChildren
+        tag_info => 
+      }
+      dom.stopEvent => %{
+        tag_value => stopEvent
+        tag_name => function
+        id => dom.stopEvent
+        tag_info => 
+      }
+      dom.canvas.pageX => %{
+        tag_value => pageX
+        tag_name => function
+        id => dom.canvas.pageX
+        tag_info => 
+      }
+      dom.getContentWidth => %{
+        tag_value => getContentWidth
+        tag_name => function
+        id => dom.getContentWidth
+        tag_info => 
+      }
+      dom.browser.isOpera => %{
+        tag_value => isOpera
+        tag_name => member
+        id => dom.browser.isOpera
+        tag_info => 
+      }
+      dom.setClassName => %{
+        tag_value => setClassName
+        tag_name => function
+        id => dom.setClassName
+        tag_info => 
+      }
+      dom.insertChildrenAfter => %{
+        tag_value => insertChildrenAfter
+        tag_name => function
+        id => dom.insertChildrenAfter
+        tag_info => 
+      }
+      dom.getInnerBottom => %{
+        tag_value => getInnerBottom
+        tag_name => function
+        id => dom.getInnerBottom
+        tag_info => 
+      }
+      dom.waitUntil => %{
+        tag_value => waitUntil
+        tag_name => function
+        id => dom.waitUntil
+        tag_info => 
+      }
+      dom.setStyle => %{
+        tag_value => setStyle
+        tag_name => function
+        id => dom.setStyle
+        tag_info => 
+      }
+      dom.hasClassName => %{
+        tag_value => hasClassName
+        tag_name => function
+        id => dom.hasClassName
+        tag_info => 
+      }
+      dom.setTimeout => %{
+        tag_value => setTimeout
+        tag_name => function
+        id => dom.setTimeout
+        tag_info => 
+      }
+      dom.setAttribute => %{
+        tag_value => setAttribute
+        tag_name => function
+        id => dom.setAttribute
+        tag_info => 
+      }
+      dom.removeClassName => %{
+        tag_value => removeClassName
+        tag_name => function
+        id => dom.removeClassName
+        tag_info => 
+      }
+      dom.canvas.windowY => %{
+        tag_value => windowY
+        tag_name => function
+        id => dom.canvas.windowY
+        tag_info => 
+      }
+      dom.replaceChildren => %{
+        tag_value => replaceChildren
+        tag_name => function
+        id => dom.replaceChildren
+        tag_info => 
+      }
+      dom.getElement => %{
+        tag_value => getElement
+        tag_name => function
+        id => dom.getElement
+        tag_info => 
+      }
+      dom.replaceElement => %{
+        tag_value => replaceElement
+        tag_name => function
+        id => dom.replaceElement
+        tag_info => 
+      }
+      dom.appendChild => %{
+        tag_value => appendChild
+        tag_name => function
+        id => dom.appendChild
+        tag_info => 
+      }
+      dom.translateStyleName => %{
+        tag_value => translateStyleName
+        tag_name => function
+        id => dom.translateStyleName
+        tag_info => 
+      }
+      dom.getWidth => %{
+        tag_value => getWidth
+        tag_name => function
+        id => dom.getWidth
+        tag_info => 
+      }
+      dom.getInnerTop => %{
+        tag_value => getInnerTop
+        tag_name => function
+        id => dom.getInnerTop
+        tag_info => 
+      }
+      dom.canvas => %{
+        tag_value => canvas
+        tag_name => structure
+        id => dom.canvas
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      http.JSONRequest
+    }
+    dependencies => @{
+    }
+    usages => @{
+      http.Request
+      lang.createPrototype
+      util.overlay
+      util.isObject
+      data.json.parse
+      error.reportError
+    }
+    path => /home/ryan/code/src/lib/ecma/http/JSONRequest.js
+    tags => %{
+      http.JSONRequest => %{
+        tag_value => JSONRequest
+        tag_name => class
+        id => http.JSONRequest
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      http.HTTP_STATUS_NAMES
+      http.isSameOrigin
+    }
+    dependencies => @{
+    }
+    usages => @{
+      http.Location
+    }
+    path => /home/ryan/code/src/lib/ecma/http/http.js
+    tags => %{
+      http.isSameOrigin => %{
+        tag_value => isSameOrigin
+        tag_name => function
+        id => http.isSameOrigin
+        tag_info => 
+      }
+      http.HTTP_STATUS_NAMES => %{
+        tag_value => HTTP_STATUS_NAMES
+        tag_name => constant
+        id => http.HTTP_STATUS_NAMES
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      http.Cookies
+    }
+    dependencies => @{
+    }
+    usages => @{
+      data.XFR
+    }
+    path => /home/ryan/code/src/lib/ecma/http/Cookies.js
+    tags => %{
+      http.Cookies => %{
+        tag_value => Cookies
+        tag_name => class
+        id => http.Cookies
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      http.XHR_UNINITIALIZED
+      http.XHR_LOADING
+      http.XHR_LOADED
+      http.XHR_INTERACTIVE
+      http.XHR_COMPLETE
+      http.XHR_STATE_NAMES
+      http.newXHR
+      http.Request
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      util.isArray
+      http.newXHR
+      lang.Callback
+      util.isObject
+      util.isDefined
+      http.XHR_COMPLETE
+      http.XHR_STATE_NAMES
+      error.reportError
+      http.HTTP_STATUS_NAMES
+      util.step
+    }
+    path => /home/ryan/code/src/lib/ecma/http/Request.js
+    tags => %{
+      http.XHR_COMPLETE => %{
+        tag_value => XHR_COMPLETE
+        tag_name => constant
+        id => http.XHR_COMPLETE
+        tag_info => 
+      }
+      http.XHR_LOADING => %{
+        tag_value => XHR_LOADING
+        tag_name => constant
+        id => http.XHR_LOADING
+        tag_info => 
+      }
+      http.XHR_UNINITIALIZED => %{
+        tag_value => XHR_UNINITIALIZED
+        tag_name => constant
+        id => http.XHR_UNINITIALIZED
+        tag_info => 
+      }
+      http.XHR_INTERACTIVE => %{
+        tag_value => XHR_INTERACTIVE
+        tag_name => constant
+        id => http.XHR_INTERACTIVE
+        tag_info => 
+      }
+      http.newXHR => %{
+        tag_value => newXHR
+        tag_name => function
+        id => http.newXHR
+        tag_info => 
+      }
+      http.XHR_STATE_NAMES => %{
+        tag_value => XHR_STATE_NAMES
+        tag_name => constant
+        id => http.XHR_STATE_NAMES
+        tag_info => 
+      }
+      http.XHR_LOADED => %{
+        tag_value => XHR_LOADED
+        tag_name => constant
+        id => http.XHR_LOADED
+        tag_info => 
+      }
+      http.Request => %{
+        tag_value => Request
+        tag_name => class
+        id => http.Request
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      http.Location
+    }
+    dependencies => @{
+    }
+    usages => @{
+      http.Location
+      data.addr_parent
+    }
+    path => /home/ryan/code/src/lib/ecma/http/Location.js
+    tags => %{
+      http.Location => %{
+        tag_value => Location
+        tag_name => class
+        id => http.Location
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      data.inspect
+      data.fromObject
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.defined
+      util.isObject
+      util.grep
+      util.isDefined
+      util.isAssociative
+      data.HashList
+      util.isArray
+      data.Array
+    }
+    path => /home/ryan/code/src/lib/ecma/data/data.js
+    tags => %{
+      data.fromObject => %{
+        tag_value => fromObject
+        tag_name => function
+        id => data.fromObject
+        tag_info => 
+      }
+      data.inspect => %{
+        tag_value => inspect
+        tag_name => function
+        id => data.inspect
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      data.Container
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lang.createAbstractFunction
+      util.defined
+      data.addr_split
+      data.HashList
+      util.isa
+      data.xfr.encodeComponent
+    }
+    path => /home/ryan/code/src/lib/ecma/data/Container.js
+    tags => %{
+      data.Container => %{
+        tag_value => Container
+        tag_name => class
+        id => data.Container
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      data.utf8.encode
+      data.utf8.decode
+    }
+    dependencies => @{
+    }
+    usages => @{
+    }
+    path => /home/ryan/code/src/lib/ecma/data/utf8.js
+    tags => %{
+      data.utf8.encode => %{
+        tag_value => encode
+        tag_name => function
+        id => data.utf8.encode
+        tag_info => 
+      }
+      data.utf8.decode => %{
+        tag_value => decode
+        tag_name => function
+        id => data.utf8.decode
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      data.HashList
+      data.OrderedHash
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lang.Methods
+      util.defined
+      error.IllegalArg
+      lang.callback
+      data.Container
+    }
+    path => /home/ryan/code/src/lib/ecma/data/HashList.js
+    tags => %{
+      data.OrderedHash => %{
+        tag_value => OrderedHash
+        tag_name => class
+        id => data.OrderedHash
+        tag_info => 
+      }
+      data.HashList => %{
+        tag_value => HashList
+        tag_name => class
+        id => data.HashList
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      data.Node
+      data.getNodeByData
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.createPrototype
+      util.isa
+      util.isObject
+      util.clone
+      util.isFunction
+      util.randomId
+      util.isArray
+      lang.callback
+      lang.createCallback
+    }
+    path => /home/ryan/code/src/lib/ecma/data/Node.js
+    tags => %{
+      data.Node => %{
+        tag_value => Node
+        tag_name => class
+        id => data.Node
+        tag_info => 
+      }
+      data.getNodeByData => %{
+        tag_value => getNodeByData
+        tag_name => class
+        id => data.getNodeByData
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+    }
+    dependencies => @{
+    }
+    usages => @{
+      data.utf8.encode
+    }
+    path => /home/ryan/code/src/lib/ecma/data/md5.js
+    tags => %{
+    }
+  }
+  %{
+    provides => @{
+      data.XFR
+      data.xfr
+    }
+    dependencies => @{
+    }
+    usages => @{
+      data.HashList
+      data.Array
+      data.base64.encode
+      data.base64.decode
+      util.defined
+      util.isa
+      util.isArray
+      util.isAssociative
+      data.XFR
+    }
+    path => /home/ryan/code/src/lib/ecma/data/XFR.js
+    tags => %{
+      data.XFR => %{
+        tag_value => XFR
+        tag_name => class
+        id => data.XFR
+        tag_info => 
+      }
+      data.xfr => %{
+        tag_value => xfr
+        tag_name => instance
+        id => data.xfr
+        tag_info => <ecma.data.XFR>
+      }
+    }
+  }
+  %{
+    provides => @{
+      data.Array
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.args
+      lang.Methods
+      util.asInt
+      lang.callback
+      data.xfr.encodeComponent
+    }
+    path => /home/ryan/code/src/lib/ecma/data/Array.js
+    tags => %{
+      data.Array => %{
+        tag_value => Array
+        tag_name => class
+        id => data.Array
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      data.Pool
+    }
+    dependencies => @{
+    }
+    usages => @{
+      lang.Methods
+      util.isCallback
+      lang.callback
+      util.defined
+    }
+    path => /home/ryan/code/src/lib/ecma/data/Pool.js
+    tags => %{
+      data.Pool => %{
+        tag_value => Pool
+        tag_name => class
+        id => data.Pool
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      data.json
+      data.json.parse
+      data.json.format
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.defined
+      util.isArray
+      util.isAssociative
+    }
+    path => /home/ryan/code/src/lib/ecma/data/JSON.js
+    tags => %{
+      data.json.parse => %{
+        tag_value => parse
+        tag_name => function
+        id => data.json.parse
+        tag_info => 
+      }
+      data.json.format => %{
+        tag_value => format
+        tag_name => function
+        id => data.json.format
+        tag_info => 
+      }
+      data.json => %{
+        tag_value => json
+        tag_name => structure
+        id => data.json
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      data.base64.encode
+      data.base64.decode
+    }
+    dependencies => @{
+    }
+    usages => @{
+      data.utf8.encode
+      data.utf8.decode
+    }
+    path => /home/ryan/code/src/lib/ecma/data/base64.js
+    tags => %{
+      data.base64.decode => %{
+        tag_value => decode
+        tag_name => function
+        id => data.base64.decode
+        tag_info => 
+      }
+      data.base64.encode => %{
+        tag_value => encode
+        tag_name => function
+        id => data.base64.encode
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      data.entities.decode
+      data.entities.encode
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.isString
+    }
+    path => /home/ryan/code/src/lib/ecma/data/entities.js
+    tags => %{
+      data.entities.decode => %{
+        tag_value => decode
+        tag_name => function
+        id => data.entities.decode
+        tag_info => 
+      }
+      data.entities.encode => %{
+        tag_value => encode
+        tag_name => function
+        id => data.entities.encode
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      data.addr_split
+      data.addr_normalize
+      data.addr_ext
+      data.addr_parent
+      data.addr_name
+      data.addr_join
+    }
+    dependencies => @{
+    }
+    usages => @{
+      util.isArray
+      util.defined
+      util.isString
+      util.args
+      data.addr_normalize
+    }
+    path => /home/ryan/code/src/lib/ecma/data/Address.js
+    tags => %{
+      data.addr_name => %{
+        tag_value => addr_name
+        tag_name => function
+        id => data.addr_name
+        tag_info => 
+      }
+      data.addr_join => %{
+        tag_value => addr_join
+        tag_name => function
+        id => data.addr_join
+        tag_info => 
+      }
+      data.addr_ext => %{
+        tag_value => addr_ext
+        tag_name => function
+        id => data.addr_ext
+        tag_info => 
+      }
+      data.addr_normalize => %{
+        tag_value => addr_normalize
+        tag_name => function
+        id => data.addr_normalize
+        tag_info => 
+      }
+      data.addr_parent => %{
+        tag_value => addr_parent
+        tag_name => function
+        id => data.addr_parent
+        tag_info => 
+      }
+      data.addr_split => %{
+        tag_value => addr_split
+        tag_name => function
+        id => data.addr_split
+        tag_info => 
+      }
+    }
+  }
+  %{
+    provides => @{
+      data.CNodeLayer
+    }
+    dependencies => @{
+    }
+    usages => @{
+      action.ActionDispatcher
+      lang.assert
+      lang.createPrototype
+    }
+    path => /home/ryan/code/src/lib/ecma/data/NodeLayer.js
+    tags => %{
+      data.CNodeLayer => %{
+        tag_value => CNodeLayer
+        tag_name => class
+        id => data.CNodeLayer
+        tag_info => 
+      }
+    }
+  }
+}

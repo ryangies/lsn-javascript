@@ -1,0 +1,201 @@
+#!/usr/bin/perl -w
+package main;
+use strict;
+use Perl::Module;
+use Data::Hub::Util qw(:all);
+use Data::Format::Hash qw(:all);
+use App::Console::Color qw(c_sprintf c_printf);
+use Parse::JavaScript::Index;
+use Parse::JavaScript::Dependencies;
+
+our ($Opts, @Files) = my_opts(\@ARGV);
+our $Unknown = '';
+our $Deprecated = c_sprintf '%_ms', 'Deprecated!';
+our $Missing = c_sprintf '%_rs', 'Missing!';
+
+sub usage {
+  my $name = path_name($0);
+  print STDERR <<__EOF;
+usage:
+  $name --help
+  $name file1.js [file2.js [file3.js ...]]
+options:
+  --find [query]    Find .js files using `find`
+  --list            Display list output
+  --dump [file.hf]  Dump hash structures [to file.hf]
+  --use file.hf     Include definitions from file.hf
+  --tree            Display dependencies of dependencies
+  --terse           Just output dependency paths
+__EOF
+}
+
+sub abspath {
+  my $p = `readlink -f $_[0]`;
+  chomp $p;
+  $p;
+}
+
+if ($Opts->{'help'}) {
+  usage();
+  exit 0;
+}
+
+if (my $opt = $Opts->{'find'}) {
+  $opt eq '1' and $opt = '-xtype f -name \*\.js';
+  push @Files, split /[\r\n]+/, `find -P . $opt`;
+}
+
+if (!@Files) {
+  usage();
+  exit 1;
+}
+
+my $externals = new Parse::JavaScript::Index();
+my $internals = new Parse::JavaScript::Index();
+
+if (my $fn = $Opts->{'use'}) {
+
+  my $text = file_read($fn);
+  my $hash = hf_parse($text);
+  $externals->use($hash);
+
+}
+
+my @files = $internals->add(map {abspath($_)} @Files);
+
+if (my $fn = $Opts->{'dump'}) {
+
+  my $text = hf_format({'files' => [@files]}, -with_crown);
+  
+  if ($fn eq '1') {
+    printf "%s\n", $text;
+  } else {
+    file_write($fn, $text);
+    printf "Wrote %s\n", $fn;
+  }
+
+} elsif (my $list_type = $Opts->{'list'}) {
+
+  my $deps = new Parse::JavaScript::Dependencies($externals, $internals);
+  $deps->recurse(@files);
+  foreach my $name (sort $deps->get_names) {
+    my $file = $deps->get_provider($name);
+    printf "%-40s %s\n", $name, $file ? $file->get_path : 'Missing!';
+  }
+
+} elsif ($Opts->{'tree'}) {
+
+  sub _gather_deps {
+    my $file = shift;
+    my $dep_list = shift;
+    foreach my $name ($file->get_usages) {
+      #warnf "get deps for %s (%s)\n", $file->get_path, $name;
+      my $providers = $internals->get_providers($name)
+        || $externals->get_providers($name);
+      if ($providers) {
+        my $provider = $$providers[0];
+        my $path = $provider->get_path;
+        next if $path eq $file->get_path;
+        next if $$dep_list{$path};
+        $$dep_list{$path} = $provider;
+        _gather_deps($provider, $dep_list);
+      } else {
+        my $is_instance_call = 0;
+        my @names = split /\./, $name;
+        pop @names;
+        if (@names > 1) {
+          my $pname = join '.', @names;
+          my $providers = $internals->get_providers($pname)
+            || $externals->get_providers($pname);
+          foreach my $provider (@$providers) {
+            my $tag = $provider->get_tag($pname);
+            if ($tag->is_instance_tag) {
+              $is_instance_call = 1;
+              last;
+            }
+          }
+        }
+        next if $is_instance_call;
+        warn c_sprintf "$Missing: %_gs (used in %s)\n", $name, $file->get_path;
+      }
+    }
+  }
+
+  sub sort_deps {
+    $a->get_path cmp $b->get_path;
+  }
+
+  my %combined_deps;
+  foreach my $file (@files) {
+    my $dep_list = {};
+    _gather_deps($file, $dep_list);
+    c_printf "%_bs\n", $file->get_path;
+    # TODO - Sort according to usage (prescedence)
+    foreach my $dep (sort sort_deps values %$dep_list) {
+      $combined_deps{$dep->get_path} = $dep;
+      c_printf "  %s\n", $dep->get_path;
+    }
+  }
+
+  if (@files > 1) {
+    c_printf "%_bs\n", 'Combined dependencies';
+    foreach my $dep (sort sort_deps values %combined_deps) {
+      c_printf "  %s\n", $dep->get_path;
+    }
+  }
+
+} elsif ($$Opts{'terse'}) {
+
+  my %paths = ();
+
+  foreach my $file (@files) {
+    my $path = $file->get_path;
+    foreach my $name ($file->get_usages) {
+      my $dep_type = $Unknown;
+      my $dep_path = $Missing;
+      my $providers = $internals->get_providers($name)
+        || $externals->get_providers($name);
+      if ($providers) {
+        my $file = $$providers[0];
+        my $tag = $file->get_tag($name);
+        $dep_path = $file->get_path;
+        $dep_type = $tag->get_name;
+        next if $dep_path eq $path;
+      }
+      $paths{$dep_path} = 1;
+    }
+  }
+
+  printf "$_\n" for sort keys %paths;
+
+} else {
+
+  foreach my $file (@files) {
+    my $path = $file->get_path;
+    c_printf "%_bs\n", $path;
+    c_printf "  provides:\n";
+    foreach my $name ($file->get_provides) {
+      c_printf "    %s\n", $name;
+    }
+    c_printf "  dependencies:\n";
+    foreach my $name ($file->get_usages) {
+      my $dep_type = $Unknown;
+      my $dep_path = $Missing;
+      my $providers = $internals->get_providers($name)
+        || $externals->get_providers($name);
+      if ($providers) {
+        my $file = $$providers[0];
+        my $tag = $file->get_tag($name);
+        $dep_path = $file->get_path;
+        $dep_type = $tag ? $tag->get_name : '';
+        next if $dep_path eq $path;
+      }
+      if ($dep_type eq 'deprecated') {
+        c_printf "    %s $Deprecated (%s)\n", $name, $dep_path;
+      } else {
+        c_printf "    %s (%s)\n", $name, $dep_path;
+      }
+    }
+  }
+
+}
