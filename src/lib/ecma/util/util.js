@@ -138,60 +138,15 @@ ECMAScript.Extend('util', function (ecma) {
     return typeof(unk) == 'number';
   }
 
-/**
- * This code (now named hasArrayFunctions) was used for isArray as it was 
- * thought one could derive from Array correctly. However this is not the case 
- * as setting C<a1[2] = 'z'> does not increase C<a1.length> nor does push or 
- * shift.
- *
- *  // Arrays created this way are both Arrays and Associative
- *  var A1 = function () {};
- *  var A2 = function () {};
- *  A1.prototype = js.lang.createPrototype(Array);
- *  A2.prototype = js.lang.createPrototype(A1);
- *  var a1 = new A1();
- *  var a2 = new A2();
- *  a1.foo = 'bar';
- *  a2.foo = 'bar';
- *  a1.push('x');
- *  a1.push('y');
- *  a1[2] = 'z';
- *  a2.push('x');
- *  a2.push('y');
- *  a2[2] = 'z';
- *  js.lang.assert(a1.join('') == 'xy'); // ! real Array would == 'xyz'
- *  js.lang.assert(a2.join('') == 'xy'); // ! real Array would == 'xyz'
- *  js.lang.assert(!js.util.isArray(a1));
- *  js.lang.assert(!js.util.isArray(a2));
- *  js.lang.assert(js.util.isAssociative(a1));
- *  js.lang.assert(js.util.isAssociative(a2));
- *
+  /**
+   * @function isDate
+   * Is the unknown a `Date`?
+   * @param unk <Any> The unknown
+   */
 
-  this.hasArrayFunctions = function (unk) {
-    try {
-      var ctors = unk.__constructors__;
-      if (ctors) {
-        for (var i = 0, ctor; ctor = ctors[i]; i++) {
-          for (var j = 0; j < ECMAScript.Instances.length; j++) {
-            if (ctor === ECMAScript.Instances[j].window.Array) return true;
-          }
-        }
-        return false;
-      } else {
-        return _isArray(unk);
-      }
-    } catch (ex) {
-      return false;
-    }
-  };
-
-snipsnap
-    if (!ecma.util.isObject(unk)) return false;
-    // unk.constructor.prototype.length is defined on strings (so we use push 
-    // instead)
-    return typeof(unk.constructor.prototype.push) == 'function';
-*
-*/
+  this.isDate = function (unk){
+    return _toString.call(unk) == '[object Date]';
+  }
 
   /**
    * @function isAssociative
@@ -516,6 +471,52 @@ snipsnap
     var obj = ecma.util.isAssociative(arg1) ? {} : [];
     args.unshift(obj);
     return ecma.util.overlay.apply(this, args);
+  };
+
+  /**
+   * @function equals
+   *
+   * Derived from:
+   *  @license AngularJS v1.0.4
+   *  (c) 2010-2012 Google, Inc. http://angularjs.org
+   *  License: MIT
+   *
+   */
+
+  this.equals = function (arg1, arg2) {
+    if (arg1 === arg2) return true;
+    if (arg1 === null || arg2 === null) return false;
+    if (arg1 !== arg1 && arg2 !== arg2) return true; // NaN === NaN
+    var t1 = typeof arg1, t2 = typeof arg2, length, key, keySet;
+    if (t1 == t2) {
+      if (t1 == 'object') {
+        if (ecma.util.isArray(arg1)) {
+          if ((length = arg1.length) == arg2.length) {
+            for(key=0; key<length; key++) {
+              if (!ecma.util.equals(arg1[key], arg2[key])) return false;
+            }
+            return true;
+          }
+        } else if (ecma.util.isDate(arg1)) {
+          return ecma.util.isDate(arg2) && arg1.getTime() == arg2.getTime();
+        } else {
+          // if (ecma.util.isWindow(arg1) || ecma.util.isWindow(arg2)) return false;
+          keySet = {};
+          for(key in arg1) {
+            if (ecma.util.isFunction(arg1[key])) continue;
+            if (!ecma.util.equals(arg1[key], arg2[key])) return false;
+            keySet[key] = true;
+          }
+          for(key in arg2) {
+            if (!keySet[key] &&
+                arg2[key] !== undefined &&
+                !ecma.util.isFunction(arg2[key])) return false;
+          }
+          return true;
+        }
+      }
+    }
+    return false;
   };
 
   /**
