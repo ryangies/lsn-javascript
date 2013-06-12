@@ -54,6 +54,7 @@ ECMAScript.Extend('http', function (ecma) {
    * @member hash
    */
 
+  var pseudoUri = new RegExp('^([a-z]+):[^/]'); // data:, about:, etc
   var proto = {};
 
   this.Location = function (uri) {
@@ -254,13 +255,27 @@ ECMAScript.Extend('http', function (ecma) {
   /**
    * @function parseUri
    * Sets this object's member values accoding to the provided URI.
+   *
    *  location.parseUri(newUri);
+   *
+   * If the `newUri` begins like 'data:gif' or 'about:blank', we only set
+   * the protocol member. This will result in a valid location object, however
+   * it won't be too useful. To make this a functional scenario, each of
+   * the accessor methods (like L<getHref>) need to be thought through.
    */
 
   proto.parseUri = function (uri) {
     this.copyDocumentLocation();
+    this.search = '';
+    this.hash = '';
     var href = undefined;
-    if (uri.indexOf('//') == 0) {
+    var pseudoMatch = pseudoUri.test(uri);
+    if (pseudoMatch) {
+      this.protocol = pseudoMatch[0];
+      this.hostname = '';
+      this.port = '';
+      this.pathname = '';
+    } else if (uri.indexOf('//') == 0) {
       href = this.protocol + uri;
     } else if ((uri.indexOf('?') == 0) || (uri.indexOf('#') == 0)) {
       href = this.getOrigin() + this.pathname + uri;
