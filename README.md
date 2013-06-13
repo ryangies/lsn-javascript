@@ -23,32 +23,32 @@ collisions.
 A basic example
 ---------------
 ```html
-    <!--
-      Library scripts
-      Usually the library files are compiled and minimized (see Compiling 
-      below).  Here each is referenced individually for verbosity.
-    -->
-    <script src="src/lib/ecma/ECMAScript.js" type="text/javascript"></script>
-    <script src="src/lib/ecma/global.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      js.extend('local', function (js) {
+<!--
+  Library scripts
+  Usually the library files are compiled and minimized (see Compiling 
+  below).  Here each is referenced individually for verbosity.
+-->
+<script src="src/lib/ecma/ECMAScript.js" type="text/javascript"></script>
+<script src="src/lib/ecma/global.js" type="text/javascript"></script>
+<script type="text/javascript">
+  js.extend('local', function (js) {
 
-        // The `this` pointer references the namespace we are extending.
-        var Package = this;
+    // The `this` pointer references the namespace we are extending.
+    var Package = this;
 
-        Package.alertHello = function () {
-          alert('Hello');
-        };
+    Package.alertHello = function () {
+      alert('Hello');
+    };
 
-      });
-    </script>
+  });
+</script>
 
-    <!--
-      User scripts
-    -->
-    <script type="text/javascript">
-      js.local.alertHello();
-    </script>
+<!--
+  User scripts
+-->
+<script type="text/javascript">
+  js.local.alertHello();
+</script>
 ```
 
 Compiling
@@ -58,7 +58,7 @@ See the `specs/` directory for sample build files. The `src/bin/lsn-jsc` command
 is used to compile the scripts according to the build file.
 
 The lsn-jsc utility requires lsn-data-hub be installed (or available). Each
-source file is parsed as a hub template considering `{#` and `}` as delimeters.
+source file is parsed as a hub template considering `{#` and `}` as delimiters.
 
 Generated Documentation
 -----------------------
