@@ -14,14 +14,15 @@ packages and avoid clobbering global variables.
 the library to act upon a child IFRAME, without changing its dependencies 
 nor incurring the cost of additional HTTP requests to the library files.
 
+3. Namespaces, i.e., packages, may be extended at any time, and multiple times.
+
 Packages may contain local private variables, classes, and functions. 
 Namespaces are extendable, allowing the end product to avoid naming 
-collisions. Each library instance may operate upon separate window and 
-document objects.
+collisions.
 
 A basic example
 ---------------
-
+```html
     <!--
       Library scripts
       Usually the library files are compiled and minimized (see Compiling 
@@ -48,15 +49,16 @@ A basic example
     <script type="text/javascript">
       js.local.alertHello();
     </script>
+```
 
 Compiling
 ---------
 
-See the specs/ directory for sample build files. The src/bin/lsn-jsc command
+See the `specs/` directory for sample build files. The `src/bin/lsn-jsc` command
 is used to compile the scripts according to the build file.
 
 The lsn-jsc utility requires lsn-data-hub be installed (or available). Each
-source file is parsed as a hub template considering '{#' and '}' as delimeters.
+source file is parsed as a hub template considering `{#` and `}` as delimeters.
 
 Generated Documentation
 -----------------------
