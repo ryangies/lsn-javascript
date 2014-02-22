@@ -244,7 +244,7 @@ ECMAScript.Extend('hubb', function (ecma) {
   };
 
   Node.isDataContainer = function () {
-    return this.getType().match(/^(data-(hash|array)|file-(multipart|data))/)
+    return this.getType().match(/^(data-(hash|array)|file-((binary-)?multipart|data))/)
       ? true : false;
   };
 
