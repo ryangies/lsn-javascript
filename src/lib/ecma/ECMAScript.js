@@ -250,7 +250,11 @@ ECMAScript.Class.prototype = {
       inst = inst[seg];
     }
     if (inst[name]) {
+      try {
       func.apply(inst[name], [this]);
+      } catch (ex) {
+        window.console.log("Cannot extend: " + name);
+      }
     } else {
       inst[name] = new func(this);
     }
