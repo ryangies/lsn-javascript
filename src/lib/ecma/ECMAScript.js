@@ -253,7 +253,7 @@ ECMAScript.Class.prototype = {
       try {
       func.apply(inst[name], [this]);
       } catch (ex) {
-        window.console.log("Cannot extend: " + name);
+        window.console.log("Cannot extend '" + name + "': " + ex);
       }
     } else {
       inst[name] = new func(this);
