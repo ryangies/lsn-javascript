@@ -1,7 +1,6 @@
 #!/bin/bash
 
-scriptdir=$(readlink -f "$(dirname $(readlink -f $0))")
-root=$(readlink -f "$scriptdir/../")
+root="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 source "$LSN_COMMON/functions"
 cd $root
 
@@ -27,12 +26,14 @@ if [ ! -d "$dir_proj" ]; then
   fi
 else
   cd $dir_proj
-  echo "Update: $dir_proj"
-  git submodule update --init --recursive
+# echo "Update: $dir_proj"
+# git submodule update --init --recursive
+  echo "Pull: $dir_proj"
+  git pull
 fi
 
 #
 # Copy to project space
 #
 
-cp sizzle.js $dir_dest/_sizzle.js
+cp -v dist/sizzle.js $dir_dest/_sizzle.js

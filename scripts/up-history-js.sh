@@ -1,7 +1,6 @@
 #!/bin/bash
 
-scriptdir=$(readlink -f "$(dirname $(readlink -f $0))")
-root=$(readlink -f "$scriptdir/../")
+root="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 source "$LSN_COMMON/functions"
 cd $root
 
@@ -27,7 +26,8 @@ if [ ! -d "$dir_proj" ]; then
   fi
 else
   cd $dir_proj
-  git submodule update --init --recursive
+# git submodule update --init --recursive
+  git pull
 fi
 
 #
