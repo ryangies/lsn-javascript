@@ -190,24 +190,37 @@ ECMAScript.Extend('hubb', function (ecma) {
     _xcmd.call(this, 'fetch', addr, addr, headers, params, cb);
   };
 
-  DataBridge.store = function (addr, value, cb) {
-    addr = this.absoluteAddress(addr);
-    this.validateAddress(addr);
-    var datum = this.getNodeByAddress(addr);
-    var mtime = datum ? datum.getTimestamp() : '0';
-    var params = {
-      'value': value,
-      'mtime': mtime
-    };
-    _xcmd.call(this, 'store', addr, addr, null, params, cb);
+  // Must use paramater hash to include 'origin' argument
+  DataBridge.store = function (/*addr, value, cb*/) {
+    var args = _args(['target', 'value'], arguments);
+    var params = args.shift();
+    var cb = args.shift();
+    params.target = this.absoluteAddress(params.target);
+    this.validateAddress(params.target);
+    var datum = this.getNodeByAddress(params.target);
+    if (datum) {
+      params.mtime = datum.getTimestamp();
+      params.origin = datum.getValue();
+    } else {
+      params.mtime = '0';
+    }
+    _xcmd2.call(this, 'store', null, params, cb);
   };
 
+  // Must use paramater hash to include 'origins' argument
   DataBridge.update = function (/*addr, values, cb*/) {
     var args = _args(['target', 'values'], arguments);
     var params = args.shift();
     var cb = args.shift();
     params.target = this.absoluteAddress(params.target);
     this.validateAddress(params.target);
+    var datum = this.getNodeByAddress(params.target);
+    if (datum) {
+      params.mtime = datum.getTimestamp();
+      params.origins = datum.toObject();
+    } else {
+      params.mtime = '0';
+    }
     _xcmd2.call(this, 'update', null, params, cb);
   };
 

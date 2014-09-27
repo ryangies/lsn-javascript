@@ -9,7 +9,7 @@ ECMAScript.Extend('lsn.hubb.command', function (ecma) {
 
   this.Update = function () {
     CBase.call(this, 'update');
-    this.argspec = ['target', 'values', 'mtime', 'force'];
+    this.argspec = ['target', 'values', 'mtime', 'force', 'origins'];
   };
 
   var Update = this.Update.prototype = ecma.lang.createPrototype(CBase);
