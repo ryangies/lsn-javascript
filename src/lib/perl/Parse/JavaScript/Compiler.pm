@@ -13,6 +13,10 @@ use App::Console::Color qw(c_sprintf c_printf);
 
 our $Minimize_Cmd = 'lsn-jsmin';
 
+# Do not compress files unless they have this many lines of JavaScript. That 
+# is, do not re-compress already compressed files.
+our $Min_Line_Count = 10;
+
 our $Value_Parser = Parse::Template::Standard->new(
   -begin => '${',
   -end => '}'
@@ -187,7 +191,20 @@ sub compile {
     my $tmp = File::Temp->new();
     binmode $tmp, ':utf8';
     print $tmp $target_text;
-    `cat $tmp | $Minimize_Cmd '$headline' > $target`;
+    if(max($target_text =~ tr/\r//, $target_text =~ tr/\n//) < $Min_Line_Count) {
+      file_write($target, $target_text);
+    } else {
+      if ($target_text =~ /\+ \+/) {
+        #
+        # TODO: 'a++ +' | '+ ++a' <-- This is ambiguous, both become '+++'!
+        # The source for `lsn-jsmin` needs to be updated.
+        #
+        $self->printout("Warning:", "unhandled `+ +` sequence, skipping minification.");
+        file_write($target, $target_text);
+      } else {
+        `cat $tmp | $Minimize_Cmd '$headline' > $target`;
+      }
+    }
     $self->printout("Wrote:", $target);
   }
   if ($doc_target && $self->{'build_docs'}) {
