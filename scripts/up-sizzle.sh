@@ -15,7 +15,7 @@ dir_dest="$root/src/lib/ecma/dom"
 if [ ! -d "$dir_proj" ]; then
   if ($(ask_yn "Create: $dir_proj")); then
     mkdir -p $dir_proj
-    pdir=$(readlink -f "$dir_proj/../")
+    pdir=$(dir_absolute "$dir_proj/../")
     name=$(basename "$dir_proj")
     echo "Pdir $pdir"
     cd $pdir
