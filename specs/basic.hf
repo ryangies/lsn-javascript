@@ -18,6 +18,7 @@ files => @{
   error/programatic.js
   error/strings.js
   threads/threads.js
+  impl/Options.js
   impl/Parameters.js
   # Paul Johnston's sha1 algorithms
   crypt/sha1.js
